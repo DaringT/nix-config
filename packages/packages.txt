@@ -1,0 +1,15 @@
+kdePackages.kate
+kdePackages.elisa
+kdePackages.okular
+htop
+fastfetch
+wineWowPackages.stable
+thunderbird
+obsidian
+audacity
+vlc
+makemkv
+virt-manager
+discord
+filezilla
+vscode
