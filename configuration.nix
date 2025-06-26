@@ -30,7 +30,7 @@
   networking.networkmanager.enable = true;
 
   # Enable Flakes
-  nix.settings.experimental.features = [ "nix-command" "flakes"]
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
 
   # Set your time zone.
   time.timeZone = "America/New_York";
