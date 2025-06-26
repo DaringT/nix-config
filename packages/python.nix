@@ -8,7 +8,6 @@
     python313Packages.pytube #for downloading YouTube videos
     python313Packages.pyudev
     python313Packages.tqdm
-    python313Packages.makemkv
     python313Packages.rich
 
   ];
