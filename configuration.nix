@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./packages/librewolf.nix
+      ./packages/python3.nix
     ];
 
   # Bootloader.
@@ -126,8 +127,6 @@
     lsd
     docker
     git
-    python313Packages.pip
-    python313Packages.venvShellHook
     vscode
     timeshift
     tree
