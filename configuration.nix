@@ -130,6 +130,7 @@
     lsd
     docker
     git
+    gh
     vscode
     timeshift
     tree
