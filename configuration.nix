@@ -106,6 +106,7 @@
       vlc
       makemkv
       virt-manager
+      plasma-panel-colorizer
     ];
   };
 
