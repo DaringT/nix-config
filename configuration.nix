@@ -10,8 +10,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./packages/librewolf.nix
-      ./packages/python.nix
+      ./modules/librewolf.nix
+      ./modules/python.nix
     ];
 
   # Bootloader.
