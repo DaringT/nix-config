@@ -18,6 +18,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # NEEDED FOR MAKEMKV !!
+  boot.kernelModules = [ "sg" ];
+
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -151,7 +154,6 @@
   # };
 
   # List services that you want to enable:
-
    #Enable the OpenSSH daemon.
    services.openssh.enable = true;
 
