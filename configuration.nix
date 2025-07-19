@@ -138,6 +138,7 @@
     vscode
     timeshift
     tree
+    ffmpeg
 
   ];
 
