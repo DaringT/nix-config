@@ -113,6 +113,7 @@
       makemkv
       virt-manager
       plasma-panel-colorizer
+      mkvtoolnix
     ];
   };
 
