@@ -1,13 +1,13 @@
 {
-  description = "pyutube flake";
+  description = "numpy flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs = { self, nixpkgs, ... }: let
 
-  pkgs = nixpkgs.LegacyPackages. "x86_64-linux";
+  pkgs = nixpkgs.legacyPackages. "x86_64-linux";
   packageOverrides = pkgs.callPackage ./python-packages.nix {};
   python = pkgs.python3.override { inherit packageOverrides; };
 
@@ -15,7 +15,7 @@
     devShells.x86_64-linux.default = pkgs.mkShell {
 
       packages = [
-        (python.withPackages(p: [ p.pyutube ]))
+        (python.withPackages(p: [ p.numpy ]))
       ];
 
    };

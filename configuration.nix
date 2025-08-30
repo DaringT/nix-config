@@ -12,6 +12,7 @@
       ./hardware-configuration.nix
       ./modules/librewolf.nix
       ./modules/python.nix
+#       ./modules/pyutube/flake.nix
     ];
 
   # Bootloader.
@@ -24,7 +25,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "DJT_DESKTOP"; # Define your hostname.
+  networking.hostName = "DJT-DESKTOP"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -114,6 +115,7 @@
       virt-manager
       plasma-panel-colorizer
       mkvtoolnix
+      remmina
     ];
   };
 
@@ -135,13 +137,12 @@
     wget
     onlyoffice-desktopeditors
     python3
-    lsd
+    lsd # lsd can be used as tree with lsd --tree.
     docker
     git
     gh
     vscode
     timeshift
-    tree
     ffmpeg
     pulseaudio
     direnv
