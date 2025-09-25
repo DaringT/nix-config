@@ -9,6 +9,7 @@
     python313Packages.tqdm
     python313Packages.rich
     python313Packages.requests
+    python313Packages.pyqt5
 
   ];
 }

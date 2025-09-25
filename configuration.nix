@@ -108,14 +108,18 @@
       wineWowPackages.stable
       thunderbird
       obsidian
-      discord
+      # discord
+      vesktop
       audacity
       vlc
+      mpv
       makemkv
       virt-manager
       plasma-panel-colorizer
       mkvtoolnix
       remmina
+      spotdl
+      youtube-tui
     ];
   };
 

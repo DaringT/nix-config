@@ -1,0 +1,22 @@
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.mkShell {
+buildInputs = [
+pkgs.python3.withPackages (ps: [
+ps.setuptools
+ps.typer
+ps.requests
+ps.rich
+ps.yaspin
+ps.pytube
+ps.python-inquirer
+ps.python-termcolor
+ps.python-moviepy
+])
+];
+
+shellHook = ''
+echo "Welcome to the pyutube Nix development shell!"
+echo "The 'python3' command is available, along with all specified dependencies."
+'';
+}
