@@ -12,7 +12,7 @@
       ./hardware-configuration.nix
       ./modules/librewolf.nix
       ./modules/python.nix
-#       ./modules/pyutube/flake.nix
+      # ./home/default.nix
     ];
 
   # Bootloader.
@@ -37,6 +37,9 @@
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes"];
+
+  home-manager.users.daren = import ./home/default.nix;
+
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -103,6 +106,7 @@
       kdePackages.kate
       kdePackages.elisa
       kdePackages.okular
+      kdePackages.kdialog
       htop
       fastfetch
       wineWowPackages.stable
