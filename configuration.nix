@@ -119,6 +119,7 @@
       mkvtoolnix
       remmina
       spotdl
+      #yt-dlp
       youtube-tui
     ];
   };
