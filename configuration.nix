@@ -113,6 +113,7 @@
       audacity
       vlc
       mpv
+      krename
       makemkv
       virt-manager
       plasma-panel-colorizer
@@ -128,9 +129,9 @@
   programs.kdeconnect.enable = true;
   programs.partition-manager.enable = true;
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  #virtualisation.virtualbox.host.enable = true;
+  #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
 
 # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
