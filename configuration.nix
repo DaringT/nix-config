@@ -108,8 +108,8 @@
       wineWowPackages.stable
       thunderbird
       obsidian
-      # discord
-      vesktop
+      
+      vesktop # discord client
       audacity
       vlc
       mpv
@@ -120,7 +120,7 @@
       mkvtoolnix
       remmina
       spotdl
-      #yt-dlp
+      yt-dlp
       youtube-tui
     ];
   };
