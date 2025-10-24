@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -10,15 +11,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager }@inputs: {
     nixosConfigurations = {
       DJT-DESKTOP = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          inputs.home-manager.nixosModules.default
+          ./modules/python.nix
+          ./hardware-configuration.nix
+          ./modules/librewolf.nix
+          home-manager.nixosModules.default
         ];
-        specialArgs = { inherit inputs; };
       };
     };
   };
