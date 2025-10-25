@@ -146,6 +146,16 @@
   #   enableSSHSupport = true;
   # };
 
+  #Automatic updateing
+  # system.autoUpgrade.enable = true;
+  # system.autoUpdrade.dates = "weekly";
+
+  # Automatic cleanup
+  nix.gc.automatic = true;
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-older-than 10d";
+  nix.settings.auto-optimise-store = true;
+
   # Enable SSH server.
   services.openssh.enable = true;
 

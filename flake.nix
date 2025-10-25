@@ -20,7 +20,7 @@
           ./configuration.nix
           ./modules/python.nix
           ./hardware-configuration.nix
-          ./modules/librewolf.nix
+          # ./modules/librewolf.nix
           home-manager.nixosModules.default
         ];
       };

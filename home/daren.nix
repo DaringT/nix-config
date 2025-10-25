@@ -1,5 +1,3 @@
-# In your /etc/nixos/home/daren.nix
-
 { config, pkgs, lib, ... }:
 
 {
