@@ -20,10 +20,23 @@
           ./configuration.nix
           ./modules/python.nix
           ./hardware-configuration.nix
-          # ./modules/librewolf.nix
+          ./modules/librewolf.nix
           home-manager.nixosModules.default
         ];
       };
     };
+
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      # FIXME replace with your username@hostname
+      "daren@DJT-Desktop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs self;};
+        modules = [
+          ./home.nix
+        ];
+    };
   };
+};
 }

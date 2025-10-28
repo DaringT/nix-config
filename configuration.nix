@@ -86,8 +86,8 @@
       kdePackages.kate
       kdePackages.elisa
       kdePackages.okular
-      htop
-      fastfetch
+      
+      
       wineWowPackages.stable
       thunderbird
       obsidian
@@ -102,9 +102,11 @@
       plasma-panel-colorizer
       mkvtoolnix
       remmina
+      brave
       spotdl
       yt-dlp
       youtube-tui
+      home-manager
     ];
   };
 
@@ -124,18 +126,18 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    onlyoffice-desktopeditors
     python3
     lsd # lsd can be used as tree with lsd --tree.
     docker
     git
+    fastfetch
+    htop
     gh
     vscode
     timeshift
     ffmpeg
     pulseaudio
     direnv
-
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -146,9 +148,16 @@
   #   enableSSHSupport = true;
   # };
 
-  #Automatic updateing
-  # system.autoUpgrade.enable = true;
-  # system.autoUpdrade.dates = "weekly";
+  # #Automatic updateing
+  # system.autoUpgrade = {
+  #   enable = true;
+  #   flake = inputs.self.outPath;
+  #   flags = [
+  #     "--print-build-logs"
+  #   ];
+  #   dates = "02:00";
+  #   randomizedDelaySec = "45min";
+  # };
 
   # Automatic cleanup
   nix.gc.automatic = true;
