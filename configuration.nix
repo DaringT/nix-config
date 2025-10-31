@@ -86,6 +86,7 @@
       kdePackages.kate
       kdePackages.elisa
       kdePackages.okular
+      kdePackages.qtsvg
       
       
       wineWowPackages.stable
