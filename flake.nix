@@ -11,32 +11,38 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }@inputs: {
+  outputs = { self, nixpkgs, home-manager }@inputs:
+  let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in
+  {
     nixosConfigurations = {
-      DJT-DESKTOP = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      "DJT-DESKTOP" = nixpkgs.lib.nixosSystem {
+        inherit system; # Added inherit system for completeness/consistency
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           ./modules/python.nix
           ./hardware-configuration.nix
           ./modules/librewolf.nix
-          home-manager.nixosModules.default
+          home-manager.nixosModules.default # HM integration for the system
         ];
       };
     };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
+
+    ## 2. Standalone Home Manager Configuration
+    #* CMD to run is: 'home-manager switch --flake .#daren'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "daren@DJT-Desktop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+      "daren" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
         extraSpecialArgs = {inherit inputs self;};
         modules = [
           ./home.nix
         ];
+      };
     };
   };
-};
 }

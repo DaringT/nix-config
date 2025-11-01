@@ -19,7 +19,9 @@
   networking.networkmanager.enable = true;
 
   # Enable Flakes
-  # nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  # _module.args = { inherit inputs globals; };
+  # users.mutableUsers = false;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
