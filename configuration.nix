@@ -90,7 +90,6 @@
       kdePackages.okular
       kdePackages.qtsvg
       
-      
       wineWowPackages.stable
       thunderbird
       obsidian
