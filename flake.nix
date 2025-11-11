@@ -40,7 +40,7 @@
 
         configuration = {
           home.stateVersion = 25.05;
-        }
+        };
         extraSpecialArgs = {inherit inputs self;};
         modules = [
           ./home.nix
