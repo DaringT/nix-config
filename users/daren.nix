@@ -9,39 +9,32 @@
   
   # 2. Package Management (replacing the old users.users.daren.packages)
   home.packages = with pkgs; [
-      # kdePackages.kate
-      # kdePackages.elisa
-      # kdePackages.okular
+      kdePackages.kate
+      kdePackages.elisa
+      kdePackages.okular
+      kdePackages.qtsvg
+      
+      wineWowPackages.stable
+      thunderbird
+      obsidian
+      
+      vesktop # discord client
+      audacity
+      vlc
+      mpv
+      krename
+      makemkv
+      virt-manager
+      plasma-panel-colorizer
+      mkvtoolnix
+      remmina
+      brave
+      spotdl
+      yt-dlp
+      youtube-tui
       kdePackages.kcalc
-
-      ffmpeg
-      
-      # wineWowPackages.stable
-      # thunderbird
-      # obsidian
       onlyoffice-desktopeditors
-      
-      # vesktop # discord client
-      # audacity
-      # vlc
-      # mpv
-      # krename
-      # makemkv
-      # virt-manager
-      # plasma-panel-colorizer
-      # mkvtoolnix
-      # remmina
-      # brave
-      # spotdl
-      # yt-dlp
-      # kdePackages.kate
-      # kdePackages.elisa
-      # kdePackages.okular
-      # kdePackages.qtsvg
-      
-      # wineWowPackages.stable
-      # thunderbird
-      # obsidian
+      ffmpeg
   ];
   
   home.sessionVariables = {
