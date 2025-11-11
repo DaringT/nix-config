@@ -1,10 +1,6 @@
 {
   description = "Nixos config flake";
 
-  let
-    version = "nixos-unstable";
-  in
-
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -42,9 +38,9 @@
       "daren" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        configuration = (
-          home.stateVersion = inherit version;        )
-
+        configuration = {
+          home.stateVersion = 25.05;
+        }
         extraSpecialArgs = {inherit inputs self;};
         modules = [
           ./home.nix
