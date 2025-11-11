@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
-home.pakages = with pkgs; [
-  librewolf
-];
 
 {
-  programs.firefox = {
+  home.pakages = with pkgs; [
+    librewolf
+  ];
+
+  programs.librewolf = {
     enable = true;
     settings = {
       homepage = "https://start.librewolf.net/";
