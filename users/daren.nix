@@ -1,51 +1,52 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Specify the Home Manager version corresponding to your flake input
-  home.stateVersion = "24.05"; 
+  home.username = "daren";
+  home.homeDirectory = "/home/daren";
   
   # 1. Shell Configuration
-  programs.bash.enable = true;
+  # programs.bash.enable = true;
   
   # 2. Package Management (replacing the old users.users.daren.packages)
   home.packages = with pkgs; [
-      kdePackages.kate
-      kdePackages.elisa
-      kdePackages.okular
+      # kdePackages.kate
+      # kdePackages.elisa
+      # kdePackages.okular
+      kdePackages.kcalc
+
+      ffmpeg
       
-      
-      wineWowPackages.stable
-      thunderbird
-      obsidian
+      # wineWowPackages.stable
+      # thunderbird
+      # obsidian
       onlyoffice-desktopeditors
       
-      vesktop # discord client
-      audacity
-      vlc
-      mpv
-      krename
-      makemkv
-      virt-manager
-      plasma-panel-colorizer
-      mkvtoolnix
-      remmina
-      brave
-      spotdl
-      yt-dlp
-      youtube-tui
+      # vesktop # discord client
+      # audacity
+      # vlc
+      # mpv
+      # krename
+      # makemkv
+      # virt-manager
+      # plasma-panel-colorizer
+      # mkvtoolnix
+      # remmina
+      # brave
+      # spotdl
+      # yt-dlp
+      # kdePackages.kate
+      # kdePackages.elisa
+      # kdePackages.okular
+      # kdePackages.qtsvg
+      
+      # wineWowPackages.stable
+      # thunderbird
+      # obsidian
   ];
-
-  # 3. Environment variables or settings
-  # home.sessionVariables = {
-  #   EDITOR = "vim";
-  # };
   
-  # 4. Git configuration
-  # programs.git = {
-  #   enable = true;
-  #   userName = "Daren Johnson";
-  #   userEmail = "daren@example.com";
-  # };
+  home.sessionVariables = {
+  
+  };
 
-  # ... add configurations for programs like alacritty, tmux, neovim, etc.
+  programs.home-manager.enable = true;
 }

@@ -43,7 +43,8 @@
         extraSpecialArgs = {inherit inputs self;};
         modules = [
           {home.stateVersion = "25.05";}
-          ./home.nix
+          # ./home.nix
+          .users/daren.nix
           # modules/home-manager
         ];
       };
