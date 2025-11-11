@@ -36,7 +36,15 @@
       onlyoffice-desktopeditors
       ffmpeg
   ];
+
+  imports = [
+    # modules/home-manager
+    ./modules/wm/kde-plasma/dolphin/dolphin.nix
+    # ./modules/browsers/librewolf.nix
+  ];
   
+
+
   home.sessionVariables = {
   
   };
