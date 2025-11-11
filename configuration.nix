@@ -137,7 +137,7 @@
     gh
     vscode
     timeshift
-    ffmpeg
+    # ffmpeg
     pulseaudio
     direnv
   ];

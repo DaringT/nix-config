@@ -8,7 +8,8 @@
 
   home.packages = with pkgs; [
     kdePackages.kcalc
-    makeDesktopItem
+    # makeDesktopItem
+    ffmpeg
   ];
 
   # home.file."/home/daren/.local/share/kio/servicemenus/convert_to_mp3.desktop".source = ./convert_to_mp3.desktop;
