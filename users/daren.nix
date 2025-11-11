@@ -38,7 +38,7 @@
   ];
 
   imports = [
-    # modules/home-manager
+    ../modules/home-manager
     ../modules/wm/kde-plasma/dolphin/dolphin.nix
     ../modules/browsers/librewolf.nix
   ];
