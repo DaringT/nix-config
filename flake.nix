@@ -44,7 +44,7 @@
         modules = [
           {home.stateVersion = "25.05";}
           # ./home.nix
-          .users/daren.nix
+          ./users/daren.nix
           # modules/home-manager
         ];
       };
