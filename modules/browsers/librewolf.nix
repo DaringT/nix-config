@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  home.pakages = with pkgs; [
+  home.packages = with pkgs; [
     librewolf
   ];
 
