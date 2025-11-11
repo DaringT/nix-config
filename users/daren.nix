@@ -6,7 +6,7 @@
   
   # 1. Shell Configuration
   # programs.bash.enable = true;
-  
+  nixpkgs.config.allowUnfree = true;
   # 2. Package Management (replacing the old users.users.daren.packages)
   home.packages = with pkgs; [
       kdePackages.kate
