@@ -20,7 +20,7 @@
   #   source = ./convert_to_mp3.desktop;
   # };
 
-  home.file."/home/test/.local/share/kio/servicemenus/convert_to_mp3.desktop" = {
+  home.file."/home/daren/.local/share/kio/servicemenus/convert_to_mp3.desktop" = {
     text = ''
       [Desktop Entry]
       Type=Service
