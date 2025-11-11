@@ -40,6 +40,8 @@
       # Exec=file=%f; ffmpeg -i %f \"$\{file%.*}.mp3\"
       Exec=file=%f; ffmpeg -i %f -q:a 0 -n \"$\{file%.*}.mp3\"
     '';
+    enable = true;
+    executable = true;
   };
 
   home.sessionVariables = {
