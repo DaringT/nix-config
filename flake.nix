@@ -38,9 +38,9 @@
       "daren" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        configuration = {
-          home.stateVersion = "25.05";
-        };
+        # configuration = {
+        home.stateVersion = "25.05";
+        # };
         extraSpecialArgs = {inherit inputs self;};
         modules = [
           ./home.nix
