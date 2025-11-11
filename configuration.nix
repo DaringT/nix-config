@@ -85,30 +85,6 @@
     description = "Daren";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      # kdePackages.kate
-      # kdePackages.elisa
-      # kdePackages.okular
-      # kdePackages.qtsvg
-      
-      # wineWowPackages.stable
-      # thunderbird
-      # obsidian
-      
-      # vesktop # discord client
-      # audacity
-      # vlc
-      # mpv
-      # krename
-      # makemkv
-      # virt-manager
-      # plasma-panel-colorizer
-      # mkvtoolnix
-      # remmina
-      # brave
-      # spotdl
-      # yt-dlp
-      # youtube-tui
-      home-manager
     ];
   };
 
