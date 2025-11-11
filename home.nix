@@ -19,6 +19,7 @@
   home.file."${config.home.homeDirectory}/.local/share/kio/servicemenus/convert_to_mp3.desktop" = {
     source = ./convert_to_mp3.desktop; 
     executable = true;
+  };
 
   home.sessionVariables = {
   
