@@ -18,7 +18,7 @@
       thunderbird
       obsidian
       
-      vesktop # discord client
+      # vesktop # discord client
       audacity
       vlc
       mpv
