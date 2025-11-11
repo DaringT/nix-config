@@ -17,8 +17,7 @@
   # Define the content of the .desktop file in the correct location for KDE/Dolphin Service Menus.
 
   home.file."${config.home.homeDirectory}/.local/share/kio/servicemenus/convert_to_mp3.desktop" = {
-    source = ./convert_to_mp3.desktop; 
-    executable = true;
+    source = ./convert_to_mp3.desktop;
   };
 
   home.sessionVariables = {
