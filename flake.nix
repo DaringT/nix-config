@@ -39,10 +39,10 @@
         inherit pkgs;
 
         # configuration = {
-        home.stateVersion = "25.05";
         # };
         extraSpecialArgs = {inherit inputs self;};
         modules = [
+          {home.stateVersion = "25.05";}
           ./home.nix
           # modules/home-manager
         ];
