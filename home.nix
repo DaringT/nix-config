@@ -32,7 +32,7 @@
     # Use pkgs.ffmpeg to ensure the correct path is available at runtime
     TryExec=${pkgs.ffmpeg}/bin/ffmpeg
     # The actual command, enclosed in quotes for the shell interpreter
-    Exec=file=%f; ${pkgs.ffmpeg}/bin/ffmpeg -i "%f" -q:a 0 -n "${"file%.*".mp3}"
+    Exec=file=%f; ${pkgs.ffmpeg}/bin/ffmpeg -i "%f" -q:a 0 -n "$${file%.*}.mp3"
   '';
 
 
