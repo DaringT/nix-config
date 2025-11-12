@@ -35,8 +35,8 @@
       };
       
       # The Camelizer (You may need to verify the ID for your locale/version)
-      "the-camelizer-price-history-ch@camelcamelcamel.com" = {
-        install_url = "https://addons.mozilla.org/firefox/downloads/latest/the-camelizer-price-history-ch/latest.xpi";
+      "izer@camelcamelcamel.com" = {
+        install_url = "https://addons.mozilla.org/firefox/downloads/file/4075638/the_camelizer_price_history_ch-3.0.15.xpi";
         installation_mode = "force_installed";
       };
       
