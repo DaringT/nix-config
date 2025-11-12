@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    # librewolf
-  ];
 
   programs.librewolf = {
     enable = true;
@@ -44,8 +41,8 @@
       };
       
       # Return YouTube Dislikes (ID from the Add-on page URL)
-      "{4624d776-be1a-4720-af5c-3a31c1815ccf}" = {
-        install_url = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislike/latest.xpi";
+      "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
+        install_url = "https://addons.mozilla.org/firefox/downloads/file/4371820/return_youtube_dislikes-3.0.0.18.xpi";
         installation_mode = "force_installed";
       };
 
