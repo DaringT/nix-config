@@ -35,6 +35,7 @@
       kdePackages.kcalc
       onlyoffice-desktopeditors
       ffmpeg
+      eza
   ];
   # # fonts.fontDir.enable = true;
   # fonts.packages = with pkgs; [
