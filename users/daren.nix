@@ -36,12 +36,19 @@
       onlyoffice-desktopeditors
       ffmpeg
   ];
-  # fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-  # nerd-fonts.fira-code
+  # # fonts.fontDir.enable = true;
+  # fonts.packages = with pkgs; [
+  # # nerd-fonts.fira-code
+  
+  # ];
+  fonts = {
+  enableDefaultPackages = true;
+  fontconfig.enable = true;
+  packages = with unstable; [
   nerd-fonts.jetbrains-mono
   ];
-
+  };
+  
   imports = [
     ../modules/home-manager
     ../modules/wm/kde-plasma/dolphin/dolphin.nix
