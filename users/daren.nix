@@ -9,8 +9,8 @@
   nixpkgs.config.allowUnfree = true;
   # 2. Package Management (replacing the old users.users.daren.packages)
   home.packages = with pkgs; [
-      kdePackages.kate
       kdePackages.elisa
+      kdePackages.kate
       kdePackages.okular
       kdePackages.qtsvg
       
@@ -35,6 +35,11 @@
       kdePackages.kcalc
       onlyoffice-desktopeditors
       ffmpeg
+  ];
+  # fonts.fontDir.enable = true;
+  fonts.packages = with pkgs; [
+  # nerd-fonts.fira-code
+  nerd-fonts.jetbrains-mono
   ];
 
   imports = [

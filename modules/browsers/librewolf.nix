@@ -31,19 +31,19 @@
       # Dark Reader
       "addon@darkreader.org" = {
         install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-        installation_mode = "force_installed";
+        installation_mode = "normal_installed";
       };
       
       # The Camelizer (You may need to verify the ID for your locale/version)
       "izer@camelcamelcamel.com" = {
         install_url = "https://addons.mozilla.org/firefox/downloads/file/4075638/the_camelizer_price_history_ch-3.0.15.xpi";
-        installation_mode = "force_installed";
+        installation_mode = "normal_installed";
       };
       
       # Return YouTube Dislikes (ID from the Add-on page URL)
       "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
         install_url = "https://addons.mozilla.org/firefox/downloads/file/4371820/return_youtube_dislikes-3.0.0.18.xpi";
-        installation_mode = "force_installed";
+        installation_mode = "normal_installed";
       };
 
       # Optional: Block all other extensions by default
