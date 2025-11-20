@@ -15,7 +15,7 @@ in {
         "name"
       ];
       color = {theme = "custom";};
-      icons = {when = "never";};
+      icons = {when = "always";};
       symlink-arrow = "->";
     };
   };
