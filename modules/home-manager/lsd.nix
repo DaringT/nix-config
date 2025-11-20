@@ -23,6 +23,7 @@ in {
   home.file.".config/lsd/colors.yaml".source = yamlFormat.generate "colors.yaml" {
     file-types = {
       # Directories
+      ".py" = "yellow bold";
       directory = "blue bold";
 
       # Executable files
@@ -30,7 +31,6 @@ in {
 
       # Symlinks (ln)
       symlink = "cyan bold";
-      ".py" = "yellow bold";
       # Specific extension: Markdown files
       ".md" = "magenta";
       
