@@ -80,6 +80,6 @@ in {
     #   renamed = "dark_green";
     #   modified = "dark_yellow";
     #   conflicted = "dark_red";
-    };
+    # };
   };
 }
