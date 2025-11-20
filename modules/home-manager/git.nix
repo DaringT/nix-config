@@ -7,4 +7,5 @@
       init.defaultBranch = "main";
       core.editor = "nano";
   };
+};
 }
