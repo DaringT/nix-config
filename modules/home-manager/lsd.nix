@@ -30,12 +30,10 @@ in {
 
       # Symlinks (ln)
       symlink = "cyan bold";
-
+      ".py" = "yellow bold";
       # Specific extension: Markdown files
       ".md" = "magenta";
       
-      # Specific extension: Archive files
-      ".zip" = "red bold";
     };
     # user = "dark_yellow";
     # group = "dark_yellow";
