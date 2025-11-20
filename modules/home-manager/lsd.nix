@@ -1,4 +1,5 @@
 programs.lsd.colors = {
+  enabled = true;
     # This directly sets the colors for the icon and file name
     file-types = {
       # Directories (di)
