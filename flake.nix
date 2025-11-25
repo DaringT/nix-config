@@ -11,10 +11,10 @@
       # inputs.home-manager.follows = "home-manager";
     };
 
-    # plasma-manager = {
-    #   url = "github:nix-community/plasma-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # }; 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }; 
     # kwin-effects-forceblur = {
     #   url = "github:taj-ny/kwin-effects-forceblur";
     #   inputs.nixpkgs.follows = "nixpkgs";
