@@ -50,6 +50,7 @@
 
         extraSpecialArgs = {inherit inputs self;};
         modules = [
+          inputs.plasma-manager.homeManagerModules.plasma-manager
           {home.stateVersion = "25.05";}
           ./users/daren.nix
           # modules/home-manager
