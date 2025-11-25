@@ -12,7 +12,7 @@ in
 
   programs.plasma.panels = [
     {
-      # screen = 0;
+      screen = 0;
       # height = 29;
       location = "bottom";
       # floating = false;
