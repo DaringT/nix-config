@@ -19,6 +19,8 @@ in
   programs.bash = {
     enable = true;
     
+    initExtra = builtins.readFile ./ls_colors.sh;
+  
     # Corresponds to shopt -s histappend, checkwinsize, globstar
     shellOptions = [
       "histappend"
@@ -90,7 +92,6 @@ in
     # # Alert Alias (using multiline string)
   };
 
-  programs.bash.initExtra = builtins.readFile ./ls_colors.sh;
   # 5. Packages
   home.packages = requiredPackages;
 
