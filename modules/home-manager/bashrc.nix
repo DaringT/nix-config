@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+# { config, pkgs, ... }:
 
 let
   # Packages required for your aliases and conditional scripts
