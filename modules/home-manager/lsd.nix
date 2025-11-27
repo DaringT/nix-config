@@ -32,12 +32,12 @@
         # Symlinks (ln)
         symlink = "cyan bold";
 
-        # Custom color for .py files
-        ".py" = "yellow bold";
-        ".zip" = "yellow";
+        # # Custom color for .py files
+        # ".py" = "yellow bold";
+        # ".zip" = "yellow";
 
-        # Specific extension: Markdown files
-        ".md" = "magenta";
+        # # Specific extension: Markdown files
+        # ".md" = "magenta";
       };
       
       # You can add other color blocks here if needed (e.g., blocks, date)
