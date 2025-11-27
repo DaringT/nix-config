@@ -31,13 +31,11 @@ in
     historyFileSize = 2000;
     
     # PS1: Custom Prompt
-    # Escaping is crucial here, typically single quotes ('...') are best.
     promptInit = ''
       PS1='\[\e[1;38;2;55;209;2m\]\u\[\e[38;2;169;169;169m\]\e[1;38;2;255;255;255m󱒜\[\e[1;38;2;55;209;2m\]\h\[\e[38;2;255;255;255m\]:\[\e[1;38;2;0;153;255m\]\w\[\e[38;2;255;0;0m\] 󰁔\[\e[0m\] '
     '';
     
     # Bash completion
-    # This replaces the conditional check for bash_completion files.
     enableCompletion = true;
   };
 
@@ -51,13 +49,10 @@ in
   };
   
   # 3. Path Management
-  # This replaces the manual export PATH="$PATH:/home/daren/.local/bin"
-  # Home Manager manages the PATH for installed packages.
-  # Use this if you have programs installed outside of Nix (e.g., pipx):
   home.sessionPath = [ "/home/daren/.local/bin" ];
 
-  # 4. Aliases
-  programs.bash.alias = {
+  # 4. Aliases (Crucial: must be 'aliases', not 'alias')
+  programs.bash.aliases = {
     # ls/cat replacements
     lss = "ls"; # Original 'ls'
     ls = "lsd";
@@ -93,23 +88,19 @@ in
     fgrep = "fgrep --color=auto";
     egrep = "egrep --color=auto";
     
-    # Alert Alias (multiline aliases must be enclosed in ''...)
-    # alert = ''notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e 's/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//')"'';
+    # Alert Alias (using multiline string)
+    alert = ''notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e 's/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//')"'';
   };
 
   # 5. Packages
-  # Install all necessary dependencies for your scripts and aliases.
   home.packages = requiredPackages;
 
   # 6. Remaining Scripts and Conditional Logic
-  # Conditional execution, lesspipe, dircolors, and external source commands.
   programs.bash.initExtra = ''
     # make less more friendly for non-text input files, see lesspipe(1)
-    # Using Nix path to lesspipe
     [ -x ${pkgs.lesspipe}/bin/lesspipe ] && eval "$(${pkgs.lesspipe}/bin/lesspipe)"
     
     # enable color support of ls using dircolors
-    # Using Nix path to dircolors (from coreutils)
     if [ -x ${pkgs.coreutils}/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(${pkgs.coreutils}/bin/dircolors -b ~/.dircolors)" || eval "$(${pkgs.coreutils}/bin/dircolors -b)"
     fi
@@ -119,7 +110,7 @@ in
         . ~/.bash_aliases
     fi
 
-    # Source external files (Ensure these files exist in your home directory)
+    # Source external files
     source ~/.ls_colors.sh
   '';
 }
