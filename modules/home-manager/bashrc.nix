@@ -52,7 +52,7 @@ in
   home.sessionPath = [ "/home/daren/.local/bin" ];
 
   # 4. Aliases (Crucial: must be 'aliases', not 'alias')
-  programs.bash.aliases = {
+  programs.bash.shellAliases = {
     # ls/cat replacements
     lss = "ls"; # Original 'ls'
     ls = "lsd";
