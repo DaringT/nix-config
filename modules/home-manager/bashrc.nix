@@ -30,9 +30,9 @@ in
     historySize = 1000;
     historyFileSize = 2000;
     
-    # PS1: Custom Prompt
-    promptInit = ''
-      PS1='\[\e[1;38;2;55;209;2m\]\u\[\e[38;2;169;169;169m\]\e[1;38;2;255;255;255m󱒜\[\e[1;38;2;55;209;2m\]\h\[\e[38;2;255;255;255m\]:\[\e[1;38;2;0;153;255m\]\w\[\e[38;2;255;0;0m\] 󰁔\[\e[0m\] '
+# PS1: Custom Prompt - FIXED: Using shellPrompt
+    shellPrompt = ''
+      \[\e[1;38;2;55;209;2m\]\u\[\e[38;2;169;169;169m\]\e[1;38;2;255;255;255m󱒜\[\e[1;38;2;55;209;2m\]\h\[\e[38;2;255;255;255m\]:\[\e[1;38;2;0;153;255m\]\w\[\e[38;2;255;0;0m\] 󰁔\[\e[0m\] '
     '';
     
     # Bash completion
@@ -95,21 +95,21 @@ in
   home.packages = requiredPackages;
 
   # 6. Remaining Scripts and Conditional Logic
-  # programs.bash.initExtra = ''
-  #   # make less more friendly for non-text input files, see lesspipe(1)
-  #   [ -x ${pkgs.lesspipe}/bin/lesspipe ] && eval "$(${pkgs.lesspipe}/bin/lesspipe)"
+  programs.bash.initExtra = ''
+    # make less more friendly for non-text input files, see lesspipe(1)
+    [ -x ${pkgs.lesspipe}/bin/lesspipe ] && eval "$(${pkgs.lesspipe}/bin/lesspipe)"
     
-  #   # enable color support of ls using dircolors
-  #   if [ -x ${pkgs.coreutils}/bin/dircolors ]; then
-  #       test -r ~/.dircolors && eval "$(${pkgs.coreutils}/bin/dircolors -b ~/.dircolors)" || eval "$(${pkgs.coreutils}/bin/dircolors -b)"
-  #   fi
+    # enable color support of ls using dircolors
+    if [ -x ${pkgs.coreutils}/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(${pkgs.coreutils}/bin/dircolors -b ~/.dircolors)" || eval "$(${pkgs.coreutils}/bin/dircolors -b)"
+    fi
     
-  #   # Alias definitions from a separate file
-  #   if [ -f ~/.bash_aliases ]; then
-  #       . ~/.bash_aliases
-  #   fi
+    # Alias definitions from a separate file
+    if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+    fi
 
-  #   # Source external files
-  #   source ~/.ls_colors.sh
-  # '';
+    # Source external files
+    source ~/.ls_colors.sh
+  '';
 }
