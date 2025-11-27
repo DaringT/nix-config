@@ -57,7 +57,8 @@ in
   programs.bash.shellAliases = {
     # ls/cat replacements
     lss = "ls"; # Original 'ls'
-    ls = "lsd";
+    # ls = "lsd";
+    ls = "${pkgs.lsd}";
     ll = "lsd -alF";
     lll = "lsd -1";
     la = "lsd -A";
