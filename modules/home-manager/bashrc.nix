@@ -58,10 +58,10 @@ in
     # ls/cat replacements
     lss = "ls"; # Original 'ls'
     ls = "lsd";
-    # ls = "${pkgs.lsd}";
     ll = "lsd -alF";
     lll = "lsd -1";
-    la = "lsd -A";
+    # la = "lsd -A";
+    la = lib.mkForce "lsd -A";
     l = "lsd -CF";
     tree = "lsd --tree";
     cat = "bat";
