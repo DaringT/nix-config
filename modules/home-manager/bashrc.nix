@@ -5,12 +5,12 @@ let
   requiredPackages = with pkgs; [
     # lsd                 # for ls/ll/la/l/tree aliases
     # bat                 # for cat alias
-    lsscsi              # for disc-info alias
+    # lsscsi              # for disc-info alias
     # yt-dlp              # for yt alias
     # gnused              # for the 'alert' alias sed commands
     # libnotify           # provides notify-send for the 'alert' alias
-    lesspipe            # for less compatibility setup
-    coreutils           # provides dircolors
+    # lesspipe            # for less compatibility setup
+    # coreutils           # provides dircolors
   ];
 
 in
@@ -57,8 +57,8 @@ in
   programs.bash.shellAliases = {
     # ls/cat replacements
     lss = "ls"; # Original 'ls'
-    # ls = "lsd";
-    ls = "${pkgs.lsd}";
+    ls = "lsd";
+    # ls = "${pkgs.lsd}";
     ll = "lsd -alF";
     lll = "lsd -1";
     la = "lsd -A";
