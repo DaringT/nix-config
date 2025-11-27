@@ -19,7 +19,7 @@ in
   programs.bash = {
     enable = true;
     
-    initExtra = builtins.readFile ./ls_colors.sh;
+    initExtra = builtins.readFile "./ls_colors.sh";
   
     # Corresponds to shopt -s histappend, checkwinsize, globstar
     shellOptions = [
