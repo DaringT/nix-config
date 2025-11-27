@@ -88,9 +88,9 @@ in
     egrep = "egrep --color=auto";
     
     # # Alert Alias (using multiline string)
-    initExtra = builtins.readFile ./ls_colors.sh;
   };
 
+  programs.bash.initExtra = builtins.readFile ./ls_colors.sh;
   # 5. Packages
   home.packages = requiredPackages;
 
