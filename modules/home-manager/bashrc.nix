@@ -56,8 +56,8 @@ in
   # 4. Aliases (Crucial: must be 'aliases', not 'alias')
   programs.bash.shellAliases = {
     # ls/cat replacements
-    lss = "ls"; # Original 'ls'
-    ls = "lsd";
+    lss = lib.mkForce"ls"; # Original 'ls'
+    ls = lib.mkForce"lsd";
     ll = lib.mkForce"lsd -alF";
     lll = lib.mkForce"lsd -1";
     # la = "lsd -A";
