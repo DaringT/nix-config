@@ -8,7 +8,7 @@ let
     lsscsi              # for disc-info alias
     yt-dlp              # for yt alias
     gnused              # for the 'alert' alias sed commands
-    libnotify           # provides notify-send for the 'alert' alias
+    # libnotify           # provides notify-send for the 'alert' alias
     lesspipe            # for less compatibility setup
     coreutils           # provides dircolors
   ];
