@@ -3,11 +3,11 @@
 let
   # Packages required for your aliases and conditional scripts
   requiredPackages = with pkgs; [
-    lsd                 # for ls/ll/la/l/tree aliases
-    bat                 # for cat alias
+    # lsd                 # for ls/ll/la/l/tree aliases
+    # bat                 # for cat alias
     lsscsi              # for disc-info alias
-    yt-dlp              # for yt alias
-    gnused              # for the 'alert' alias sed commands
+    # yt-dlp              # for yt alias
+    # gnused              # for the 'alert' alias sed commands
     # libnotify           # provides notify-send for the 'alert' alias
     lesspipe            # for less compatibility setup
     coreutils           # provides dircolors
