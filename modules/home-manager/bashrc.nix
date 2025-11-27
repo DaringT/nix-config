@@ -95,21 +95,21 @@ in
   home.packages = requiredPackages;
 
   # 6. Remaining Scripts and Conditional Logic
-  programs.bash.initExtra = ''
-    # make less more friendly for non-text input files, see lesspipe(1)
-    [ -x ${pkgs.lesspipe}/bin/lesspipe ] && eval "$(${pkgs.lesspipe}/bin/lesspipe)"
+  # programs.bash.initExtra = ''
+  #   # make less more friendly for non-text input files, see lesspipe(1)
+  #   [ -x ${pkgs.lesspipe}/bin/lesspipe ] && eval "$(${pkgs.lesspipe}/bin/lesspipe)"
     
-    # enable color support of ls using dircolors
-    if [ -x ${pkgs.coreutils}/bin/dircolors ]; then
-        test -r ~/.dircolors && eval "$(${pkgs.coreutils}/bin/dircolors -b ~/.dircolors)" || eval "$(${pkgs.coreutils}/bin/dircolors -b)"
-    fi
+  #   # enable color support of ls using dircolors
+  #   if [ -x ${pkgs.coreutils}/bin/dircolors ]; then
+  #       test -r ~/.dircolors && eval "$(${pkgs.coreutils}/bin/dircolors -b ~/.dircolors)" || eval "$(${pkgs.coreutils}/bin/dircolors -b)"
+  #   fi
     
-    # Alias definitions from a separate file
-    if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-    fi
+  #   # Alias definitions from a separate file
+  #   if [ -f ~/.bash_aliases ]; then
+  #       . ~/.bash_aliases
+  #   fi
 
-    # Source external files
-    source ~/.ls_colors.sh
-  '';
+  #   # Source external files
+  #   source ~/.ls_colors.sh
+  # '';
 }
