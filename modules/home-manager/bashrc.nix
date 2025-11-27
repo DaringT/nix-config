@@ -58,12 +58,12 @@ in
     # ls/cat replacements
     lss = "ls"; # Original 'ls'
     ls = "lsd";
-    ll = "lsd -alF";
-    lll = "lsd -1";
+    ll = lib.mkForce"lsd -alF";
+    lll = lib.mkForce"lsd -1";
     # la = "lsd -A";
     la = lib.mkForce "lsd -A";
-    l = "lsd -CF";
-    tree = "lsd --tree";
+    l = lib.mkForce"lsd -CF";
+    tree = lib.mkForce"lsd --tree";
     cat = "bat";
     
     # Directory/Navigation
