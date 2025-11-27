@@ -75,7 +75,7 @@ in
     # Utilities
     "disc-info" = "lsscsi -g";
     cls = "clear";
-    ipa = "hostname -I | awk '{print \$1}'";
+    ipa = "hostname -I | awk '{print $1}'";
 
     # External Programs & Nix Management
     yt = "yt-dlp --cookies yt-cookies.txt -t mp3";
