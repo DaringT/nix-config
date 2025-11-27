@@ -112,7 +112,6 @@ in
     # Using Nix path to dircolors (from coreutils)
     if [ -x ${pkgs.coreutils}/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(${pkgs.coreutils}/bin/dircolors -b ~/.dircolors)" || eval "$(${pkgs.coreutils}/bin/dircolors -b)"
-        # Note: 'alias ls='ls --color=auto'' is REMOVED because you override it with 'alias ls=lsd'.
     fi
     
     # Alias definitions from a separate file
