@@ -30,14 +30,10 @@ in
     historySize = 1000;
     historyFileSize = 2000;
     
-# PS1: Custom Prompt - FIXED: Using shellPrompt
-    # shellPrompt = ''
-    #   \[\e[1;;2;55;209;2m\]\u\[\e[38;2;169;169;169m\]\e[1;38;2;255;255;255m󱒜\[\e[1;38;2;55;209;2m\]\h\[\e[38;2;255;255;255m\]:\[\e[1;38;2;0;153;255m\]\w\[\e[38;2;255;0;0m\] 󰁔\[\e[0m\] '
-    # '';
-    
     # Bash completion
     enableCompletion = true;
   };
+
 
   # 2. Environment Variables
   home.sessionVariables = {
@@ -96,6 +92,8 @@ in
 
   # 5. Packages
   home.packages = requiredPackages;
+
+  home.file."~/.ls_colors.sh".source = ./.ls_colors.sh;
 
   # 6. Remaining Scripts and Conditional Logic
   programs.bash.initExtra = ''
