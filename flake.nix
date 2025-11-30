@@ -1,9 +1,9 @@
-{ config, pkgs, lib, ... }:
+# { config, pkgs, lib, ... }:
 
-let
-vm_hardware_config = import /etc/nixos/hardware-configuration.nix { inherit pkgs; };
-# windowTitleAppletPkg = pkgs.callPackage ./plasma-panel-widgets/plasma-window-title-applet.nix {};
-in
+# let
+# vm_hardware_config = import /etc/nixos/hardware-configuration.nix { inherit pkgs; };
+# # windowTitleAppletPkg = pkgs.callPackage ./plasma-panel-widgets/plasma-window-title-applet.nix {};
+# in
 
 {
   description = "Nixos config flake";
@@ -41,24 +41,23 @@ in
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          ./modules/python.nix
-          ./hardware-configuration.nix
+          ./modules/pkgs/python.nix
+          ./host/DJT-DESKTOP/hardware-configuration.nix
           # ./modules/librewolf.nix
           home-manager.nixosModules.default # HM integration for the system
         ];
       };
+    };
     nixosConfigurations = {
       "VM" = nixpkgs.lib.nixosSystem {
         inherit system; # Added inherit system for completeness/consistency
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          ./modules/python.nix
           # ./hardware-configuration.nix
           # ./modules/librewolf.nix
           home-manager.nixosModules.default # HM integration for the system
         ];
-        vm_hardware_config
       };
     };
     
