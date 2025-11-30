@@ -1,4 +1,3 @@
-# { config, pkgs, lib, ... }:
 
 # let
 # vm_hardware_config = import /etc/nixos/hardware-configuration.nix { inherit pkgs; };
@@ -19,14 +18,14 @@
       # inputs.home-manager.follows = "home-manager";
     };
 
-    # plasma-manager = {
-    #   url = "github:nix-community/plasma-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # }; 
-    # kwin-effects-forceblur = {
-    #   url = "github:taj-ny/kwin-effects-forceblur";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };     
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }; 
+    kwin-effects-forceblur = {
+      url = "github:taj-ny/kwin-effects-forceblur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };     
   };
 
   outputs = { self, nixpkgs, home-manager, plasma-manager }@inputs:
@@ -49,7 +48,6 @@
         ];
       };
     };
-    nixosConfigurations = {
       "VM" = nixpkgs.lib.nixosSystem {
         inherit system; # Added inherit system for completeness/consistency
         specialArgs = { inherit inputs; };
@@ -59,7 +57,6 @@
           home-manager.nixosModules.default # HM integration for the system
         ];
       };
-    };
     
 
 
