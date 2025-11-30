@@ -12,7 +12,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest; # Use latest kernel.
   boot.kernelModules = [ "sg" ]; # NEEDED FOR MAKEMKV
 
-  networking.hostName = "DJT-DESKTOP"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking

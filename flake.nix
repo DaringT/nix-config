@@ -43,7 +43,8 @@
           ./configuration.nix
           ./modules/pkgs/python.nix
           ./host/DJT-DESKTOP/hardware-configuration.nix
-          # ./modules/librewolf.nix
+          {networking.hostName = "DJT-DESKTOP";} # Define your hostname.
+
           home-manager.nixosModules.default # HM integration for the system
         ];
       };
@@ -55,7 +56,6 @@
         modules = [
           ./configuration.nix
           # ./hardware-configuration.nix
-          # ./modules/librewolf.nix
           home-manager.nixosModules.default # HM integration for the system
         ];
       };
