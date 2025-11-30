@@ -2,8 +2,8 @@
 
 let
   colorizerWidget = import ./plasma-panel-colorizer.nix { inherit pkgs; };
-  # windowTitleAppletPkg = pkgs.callPackage ./plasma-panel-widgets/plasma-window-title-applet.nix {};
 in
+
 {
   home.packages = with pkgs; [
     plasma-panel-colorizer
