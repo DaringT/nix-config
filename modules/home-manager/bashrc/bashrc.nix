@@ -14,12 +14,15 @@ let
   ];
 
 in
+
+home.file."~/.ls_colors.sh".source = ./.ls_colors.sh;
+
 {
   # 1. Shell Program Setup and Options
   programs.bash = {
     enable = true;
     
-    initExtra = builtins.readFile './ls_colors.sh';
+    # initExtra = builtins.readFile './ls_colors.sh';
   
     # Corresponds to shopt -s histappend, checkwinsize, globstar
     shellOptions = [
