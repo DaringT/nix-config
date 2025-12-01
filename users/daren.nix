@@ -43,7 +43,8 @@
     ../modules/wm/kde-plasma/dolphin/dolphin.nix
     ../modules/browsers/librewolf.nix
     # ../modules/wm/kde-plasma/plasma-panel.nix
-    ../modules/fonts.nix
+    # ../modules/fonts.nix
+    # modules/home-manager/fonts.nix
   ];
   
 
