@@ -65,7 +65,7 @@
         inherit pkgs;
         extraSpecialArgs = {inherit inputs self;};
         modules = [
-          inputs.plasma-manager.homeManagerModules.plasma-manager
+          inputs.plasma-manager.homeModules.plasma-manager
           {home.stateVersion = "25.05";}
           ./users/daren.nix
         ];
