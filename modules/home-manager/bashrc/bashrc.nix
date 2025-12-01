@@ -15,9 +15,6 @@ let
 
 in
 
-# home.file."~/.ls_colors.sh".source = ./.ls_colors.sh;
-home.file.".ls_colors.sh".source = ./ls_colors.sh;
-
 
 
 {
@@ -122,4 +119,9 @@ home.file.".ls_colors.sh".source = ./ls_colors.sh;
     # Source external files
     # source ~/.ls_colors.sh
   '';
+
+
+    # home.file."~/.ls_colors.sh".source = ./.ls_colors.sh;
+    home.file."~/ls_colors.sh".source = ./ls_colors.sh;
+
 }
