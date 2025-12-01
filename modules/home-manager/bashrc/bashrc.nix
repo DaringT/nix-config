@@ -16,7 +16,7 @@ let
 in
 
 # home.file."~/.ls_colors.sh".source = ./.ls_colors.sh;
-home.file."${config.home.homeDirectory}/ls_colors.sh".source = ./ls_colors.sh;
+home.file.".ls_colors.sh".source = ./ls_colors.sh;
 
 
 
