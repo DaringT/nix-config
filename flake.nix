@@ -1,4 +1,3 @@
-
 # let
 # vm_hardware_config = import /etc/nixos/hardware-configuration.nix { inherit pkgs; };
 # # windowTitleAppletPkg = pkgs.callPackage ./plasma-panel-widgets/plasma-window-title-applet.nix {};
@@ -28,52 +27,50 @@
     };     
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager }@inputs:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, kwin-effects-forceblur}@inputs:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in
   {
+    # 1. Consolidated NixOS Configurations
     nixosConfigurations = {
       "DJT-DESKTOP" = nixpkgs.lib.nixosSystem {
-        inherit system; # Added inherit system for completeness/consistency
+        inherit system;
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           ./modules/pkgs/python.nix
           ./host/DJT-DESKTOP/hardware-configuration.nix
-          {networking.hostName = "DJT-DESKTOP";} # Define your hostname.
-
-          home-manager.nixosModules.default # HM integration for the system
+          {networking.hostName = "DJT-DESKTOP";}
+          home-manager.nixosModules.default # HM integration
         ];
       };
-    };
+
       "VM" = nixpkgs.lib.nixosSystem {
-        inherit system; # Added inherit system for completeness/consistency
+        inherit system;
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          # ./hardware-configuration.nix
-          home-manager.nixosModules.default # HM integration for the system
+          # ./hardware-configuration.nix (Only uncomment if needed for VM)
+          home-manager.nixosModules.default # HM integration
         ];
       };
-    
-
+    }; # <--- CORRECT CLOSING BRACE for nixosConfigurations
 
     ## 2. Standalone Home Manager Configuration
     #* CMD to run is: 'home-manager switch --flake .#daren'
     homeConfigurations = {
       "daren" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
         extraSpecialArgs = {inherit inputs self;};
         modules = [
           inputs.plasma-manager.homeManagerModules.plasma-manager
           {home.stateVersion = "25.05";}
           ./users/daren.nix
-          # modules/home-manager
         ];
       };
     };
-  };
+
+  }; # <--- CORRECT CLOSING BRACE for the entire 'outputs' attribute set
 }
