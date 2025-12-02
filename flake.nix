@@ -48,10 +48,19 @@
       };
 
       "VM" = nixpkgs.lib.nixosSystem {
+        let
+          vm_hardware = "./host/VM/hardware-configuration.nix";
+        in
+          if builtins.pathExists vm_hardware then
+            import vm_hardware
+          else
+            {};
+          
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          
           # ./hardware-configuration.nix (Only uncomment if needed for VM)
           home-manager.nixosModules.default # HM integration
         ];
