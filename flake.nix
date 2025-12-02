@@ -46,32 +46,33 @@
           home-manager.nixosModules.default # HM integration
         ];
       };
-
-"VM" = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
       
-      modules = [
-        ./configuration.nix
-        
-        # 1. NEW: The module that conditionally copies the file during activation.
-        ./modules/vm-hardware-copy.nix 
-        
-        # 2. EXISTING: This dynamically loads the config during evaluation IF it exists.
-        (
-          let
-            vm_hardware_path = ./hosts/VM/hardware-configuration.nix;
-          in
-          if builtins.pathExists vm_hardware_path then
-            (import vm_hardware_path)
-          else
-            {} 
-        )
+      "VM" = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs; };
+            
+            modules = [
+              ./configuration.nix
               
-              home-manager.nixosModules.default # HM integration
-        ];
-      };
-    };
+              # 1. NEW: Includes the script that copies the file if it's missing on the filesystem.
+              ./modules/vm-hardware-copy.nix 
+              
+              # 2. EXISTING: Conditionally loads the file IF it exists during this build's evaluation.
+              (
+                let
+                  # Path must match the targetPath used in the module above.
+                  vm_hardware_path = ./hosts/VM/hardware-configuration.nix;
+                in
+                if builtins.pathExists vm_hardware_path then
+                  (import vm_hardware_path)
+                else
+                  {} 
+              )
+                    
+                    home-manager.nixosModules.default # HM integration
+              ];
+            };
+          };
 
     ## 2. Standalone Home Manager Configuration
     #* CMD to run is: 'home-manager switch --flake .#daren'

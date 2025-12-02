@@ -3,30 +3,34 @@
 
 let
   sourcePath = "/etc/nixos/hardware-configuration.nix";
-  targetPath = "hardware-configuration.nix";
-  
-  # Note: `builtins.pathExists` checks for the path during evaluation.
-  # This script checks existence at *activation* (boot/switch).
+  # CRITICAL FIX: Use the full, correct relative path to the target.
+  targetPath = "./hosts/VM/hardware-configuration.nix"; 
 in
 {
-  # Only run this script for the "VM" host if the target file is missing.
+  # Only run this script if the hostname is "VM"
   system.activationScripts.copyVmHardwareConfig = lib.mkIf (config.networking.hostName == "VM") ''
-    vm_hardware_path=${toString targetPath}
+    # Get the path to the current configuration directory (where the flake is).
+    # This is necessary because the activation script runs from the temporary 
+    # activation directory, not the flake's root.
+    NIXOS_CONFIG_DIR=$(dirname $(readlink -f $NIXOS_CONFIG))
+    
+    # Construct the full absolute path for the target file on the live system.
+    # Note the '$NIXOS_CONFIG_DIR/' prefix.
+    vm_hardware_path="$NIXOS_CONFIG_DIR/${targetPath}"
+    
+    # Make sure the target directory exists before attempting the copy.
+    mkdir -p $(dirname "$vm_hardware_path")
     
     # Check if the target file exists.
     if [ ! -f "$vm_hardware_path" ]; then
       echo "VM hardware config not found at $vm_hardware_path. Copying from ${sourcePath}..."
       
-      # Use the 'cp' available in the PATH during activation.
-      # The parent directory must exist for this to work.
-      # Make sure the directory structure is set up: mkdir -p /hosts/VM
+      # Use the 'cp' available from coreutils.
+      # This performs the copy on your *live system's* filesystem.
       ${pkgs.coreutils}/bin/cp ${sourcePath} "$vm_hardware_path"
       
-      # Important: If you copy the file, you will need to re-run your 
-      # NixOS command (e.g., nixos-rebuild) after the first activation
-      # so the Nix expression evaluation can pick up the new file on the 
-      # next run.
-      echo "Copied ${sourcePath} to $vm_hardware_path. A second rebuild may be necessary."
+      echo "Copied ${sourcePath} to $vm_hardware_path."
+      echo "A second 'nixos-rebuild' is REQUIRED for the configuration to use the new file."
     fi
   '';
 }
