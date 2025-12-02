@@ -47,25 +47,30 @@
         ];
       };
 
-      "VM" = nixpkgs.lib.nixosSystem {
-        let
-          vm_hardware = "./hosts/VM/hardware-configuration.nix";
-        in
-          if builtins.pathExists vm_hardware then
-            import vm_hardware
-          else
-            {};
-          
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./configuration.nix
-          
-          # ./hardware-configuration.nix (Only uncomment if needed for VM)
-          home-manager.nixosModules.default # HM integration
+    "VM" = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit inputs; };
+            
+            modules = [
+              ./configuration.nix
+              
+              # Dynamically load the VM hardware config if the file exists.
+              # The entire conditional statement is wrapped in parentheses and is
+              # a single item in the 'modules' list.
+              (
+                let
+                  vm_hardware_path = ./hosts/VM/hardware-configuration.nix;
+                in
+                if builtins.pathExists vm_hardware_path then
+                  (import vm_hardware_path)
+                else
+                  {}
+              )
+              
+              home-manager.nixosModules.default # HM integration
         ];
       };
-    }; # <--- CORRECT CLOSING BRACE for nixosConfigurations
+    };
 
     ## 2. Standalone Home Manager Configuration
     #* CMD to run is: 'home-manager switch --flake .#daren'
