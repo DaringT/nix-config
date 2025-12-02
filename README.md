@@ -4,11 +4,12 @@
 
 ## How to pull down nix config for a test VM
 ```bash
-cd ~ && \
-nix-shell -p git && \
-git clone https://github.com/DaringT/nix-config.git && \
-cd nix-config && \
-cp /etc/nixos/hardware-configuration.nix ~/nix-config/host/VM/hardware-configuration.nix && \
-sudo nixos-rebuild switch --flake .#VM && \
-home-manager switch --flake ~/nix-config#daren && \
+nix-shell -p git --run "
+  cd ~ && \
+  git clone https://github.com/DaringT/nix-config.git && \
+  cd nix-config && \
+  cp /etc/nixos/hardware-configuration.nix ~/nix-config/host/VM/hardware-configuration.nix && \
+  sudo nixos-rebuild switch --flake .#VM && \
+  home-manager switch --flake ~/nix-config#daren
+"
 ```
