@@ -47,25 +47,26 @@
         ];
       };
 
-    "VM" = nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs = { inherit inputs; };
-            
-            modules = [
-              ./configuration.nix
-              
-              # Dynamically load the VM hardware config if the file exists.
-              # The entire conditional statement is wrapped in parentheses and is
-              # a single item in the 'modules' list.
-              (
-                let
-                  vm_hardware_path = ./hosts/VM/hardware-configuration.nix;
-                in
-                if builtins.pathExists vm_hardware_path then
-                  (import vm_hardware_path)
-                else
-                  {}
-              )
+"VM" = nixpkgs.lib.nixosSystem {
+      inherit system;
+      specialArgs = { inherit inputs; };
+      
+      modules = [
+        ./configuration.nix
+        
+        # 1. NEW: The module that conditionally copies the file during activation.
+        ./modules/vm-hardware-copy.nix 
+        
+        # 2. EXISTING: This dynamically loads the config during evaluation IF it exists.
+        (
+          let
+            vm_hardware_path = ./hosts/VM/hardware-configuration.nix;
+          in
+          if builtins.pathExists vm_hardware_path then
+            (import vm_hardware_path)
+          else
+            {} 
+        )
               
               home-manager.nixosModules.default # HM integration
         ];
