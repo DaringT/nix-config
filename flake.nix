@@ -31,6 +31,16 @@
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+
+    # Define the path to the hardware configuration file relative to this flake.
+    # This is the path checked during Nix evaluation.
+    hardwarePath = ./hosts/VM/hardware-configuration.nix;
+
+    # Function to conditionally import a module only if its file exists.
+    optionalImport = file:
+      if builtins.pathExists file
+      then file
+      else null;
   in
   {
     # 1. Consolidated NixOS Configurations
@@ -46,7 +56,7 @@
           home-manager.nixosModules.default # HM integration
         ];
       };
-      
+
       "VM" = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = { inherit inputs; };
@@ -54,20 +64,13 @@
             modules = [
               ./configuration.nix
               
-              # 1. NEW: Includes the script that copies the file if it's missing on the filesystem.
-              ./modules/vm-hardware-copy.nix 
-              
-              # 2. EXISTING: Conditionally loads the file IF it exists during this build's evaluation.
-              (
-                let
-                  # Path must match the targetPath used in the module above.
-                  vm_hardware_path = ./hosts/VM/hardware-configuration.nix;
-                in
-                if builtins.pathExists vm_hardware_path then
-                  (import vm_hardware_path)
-                else
-                  {} 
-              )
+            # 1. NEW: This module runs the script to COPY the file on activation
+            # if it's missing on the filesystem.
+            ./modules/vm-hardware-copy.nix
+
+            # 2. UPDATED: This line conditionally loads the file if it exists 
+            # *during the current evaluation*. If it doesn't exist yet, it's ignored.
+            (optionalImport hardwarePath)
                     
                     home-manager.nixosModules.default # HM integration
               ];

@@ -1,36 +1,47 @@
-# ./modules/vm-hardware-copy.nix
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
-  sourcePath = "/etc/nixos/hardware-configuration.nix";
-  # CRITICAL FIX: Use the full, correct relative path to the target.
-  targetPath = "./hosts/VM/hardware-configuration.nix"; 
+  # Define the absolute paths on the target filesystem
+  targetDir = "$HOME/nix-config/hosts/VM";
+  targetFile = "${targetDir}/hardware-configuration.nix";
+  sourceFile = "/etc/nixos/hardware-configuration.nix";
 in
 {
-  # Only run this script if the hostname is "VM"
-  system.activationScripts.copyVmHardwareConfig = lib.mkIf (config.networking.hostName == "VM") ''
-    # Get the path to the current configuration directory (where the flake is).
-    # This is necessary because the activation script runs from the temporary 
-    # activation directory, not the flake's root.
-    NIXOS_CONFIG_DIR=$(dirname $(readlink -f $NIXOS_CONFIG))
-    
-    # Construct the full absolute path for the target file on the live system.
-    # Note the '$NIXOS_CONFIG_DIR/' prefix.
-    vm_hardware_path="$NIXOS_CONFIG_DIR/${targetPath}"
-    
-    # Make sure the target directory exists before attempting the copy.
-    mkdir -p $(dirname "$vm_hardware_path")
-    
-    # Check if the target file exists.
-    if [ ! -f "$vm_hardware_path" ]; then
-      echo "VM hardware config not found at $vm_hardware_path. Copying from ${sourcePath}..."
+  # Activation scripts run during the switch/boot process (usually as root)
+  system.activationScripts.copyHardwareConfig = ''
+    echo "NixOS Activation: Checking for required hardware configuration file."
+
+    TARGET_DIR="${targetDir}"
+    TARGET_FILE="${targetFile}"
+    SOURCE_FILE="${sourceFile}"
+
+    # 1. Create the target directory if it doesn't exist
+    if [ ! -d "$TARGET_DIR" ]; then
+      echo "Creating directory $TARGET_DIR..."
+      mkdir -p "$TARGET_DIR" || (echo "Warning: Could not create directory $TARGET_DIR. Check permissions." >&2)
+    fi
+
+    # 2. Check if the target hardware file exists
+    if [ ! -f "$TARGET_FILE" ]; then
+      echo "Target hardware file $TARGET_FILE not found."
+
+      # 3. If the target is missing, check the source file and copy it
+      if [ -f "$SOURCE_FILE" ]; then
+        cp "$SOURCE_FILE" "$TARGET_FILE"
+        echo "--> SUCCESS: Copied $SOURCE_FILE to $TARGET_FILE."
       
-      # Use the 'cp' available from coreutils.
-      # This performs the copy on your *live system's* filesystem.
-      ${pkgs.coreutils}/bin/cp ${sourcePath} "$vm_hardware_path"
-      
-      echo "Copied ${sourcePath} to $vm_hardware_path."
-      echo "A second 'nixos-rebuild' is REQUIRED for the configuration to use the new file."
+        # Set ownership (assuming 'user' is the intended owner)
+        chown -R user:users "$TARGET_DIR" 2>/dev/null || true
+        
+        echo "--------------------------------------------------------"
+        echo "A new 'hardware-configuration.nix' has been created."
+        echo "A SECOND 'nixos-rebuild switch' IS REQUIRED to load it."
+        echo "--------------------------------------------------------"
+      else
+        echo "--> ERROR: Source file $SOURCE_FILE not found. Cannot initialize configuration." >&2
+      fi
+    else
+      echo "Target file $TARGET_FILE already exists. Skipping copy."
     fi
   '';
 }
