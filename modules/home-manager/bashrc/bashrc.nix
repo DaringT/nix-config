@@ -117,11 +117,11 @@ in
     fi
 
     # Source external files
-    # source ~/.ls_colors.sh
+    # source ~/.config/ls_colors.sh
   '';
 
 
     # home.file."~/.ls_colors.sh".source = ./.ls_colors.sh;
-    home.file."~/ls_colors.sh".source = ./ls_colors.sh;
+    home.file."$HOME/.config/ls_colors.sh".source = ./ls_colors.sh;
 
 }

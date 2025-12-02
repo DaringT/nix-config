@@ -41,7 +41,7 @@
         modules = [
           ./configuration.nix
           ./modules/pkgs/python.nix
-          ./host/DJT-DESKTOP/hardware-configuration.nix
+          ./hosts/DJT-DESKTOP/hardware-configuration.nix
           {networking.hostName = "DJT-DESKTOP";}
           home-manager.nixosModules.default # HM integration
         ];
@@ -49,7 +49,7 @@
 
       "VM" = nixpkgs.lib.nixosSystem {
         let
-          vm_hardware = "./host/VM/hardware-configuration.nix";
+          vm_hardware = "./hosts/VM/hardware-configuration.nix";
         in
           if builtins.pathExists vm_hardware then
             import vm_hardware
