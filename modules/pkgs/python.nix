@@ -10,6 +10,7 @@
     python313Packages.rich
     python313Packages.requests
     python313Packages.pyqt5 #PyQt5
+    python313Packages.kde-material-you-colors
 
   ];
 }

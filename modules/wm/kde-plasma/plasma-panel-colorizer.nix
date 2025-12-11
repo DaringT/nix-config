@@ -1,8 +1,7 @@
 # ~/nixos-config/home-manager/modules/plasma-panel-widgets/plasma-panel-colorizer.nix
 # Devuelve el atributo que representa este widget para la lista 'widgets' del panel
 { pkgs, ... }:
-
-{
+programs.plasma.panels = [
   # Nombre interno del widget
   name = "luisbocanegra.panel.colorizer";
   # Configuración específica del widget (va bajo la clave 'config')
@@ -22,4 +21,5 @@
     # widgetBgEnabled = "false";
     # widgetBgVMargin = "3";
   };
+];
 }

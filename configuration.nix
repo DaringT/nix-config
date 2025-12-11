@@ -57,7 +57,16 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  services.printing.drivers = [ pkgs.hplip ];
+  
+  # Enable Avahi for network discovery if you plan to use .local hostnames
+  # and want automatic discovery (though you are adding by hostname manually).
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  }
+  
   # Enable sound with pipewire.
   services.pulseaudio.enable = true;
   security.rtkit.enable = true;
