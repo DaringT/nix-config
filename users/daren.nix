@@ -25,7 +25,8 @@
       krename
       makemkv
       virt-manager
-      plasma-panel-colorizer
+      # plasma-panel-colorizer
+      plasma-panel-spacer-extended
       mkvtoolnix
       remmina
       brave
