@@ -127,6 +127,7 @@
     home-manager
     bat
     kdePackages.kcolorpicker
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

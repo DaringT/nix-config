@@ -17,7 +17,7 @@
       wineWowPackages.stable
       thunderbird
       obsidian
-      
+      handbrake
       vesktop # discord client
       audacity
       vlc
@@ -25,8 +25,7 @@
       krename
       makemkv
       virt-manager
-      # plasma-panel-colorizer
-      plasma-panel-spacer-extended
+      plasma-panel-colorizer
       mkvtoolnix
       remmina
       brave
