@@ -1,8 +1,8 @@
 { config, pkgs, lib, ... }:
 
-let
-  colorizerWidget = import ./plasma-panel-colorizer.nix { inherit pkgs; };
-in
+# let
+#   colorizerWidget = import ./plasma-panel-colorizer.nix { inherit pkgs; };
+# in
 
 {
   home.packages = with pkgs; [
@@ -51,7 +51,7 @@ in
             # time.showSeconds = "always";
           };
         }
-        colorizerWidget
+        # colorizerWidget
       ];
     }
 
