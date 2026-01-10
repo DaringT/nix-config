@@ -52,6 +52,7 @@
           ./configuration.nix
           ./modules/pkgs/python.nix
           ./hosts/DJT-DESKTOP/hardware-configuration.nix
+          ./modules/gstreamer.nix
           {networking.hostName = "DJT-DESKTOP";}
           home-manager.nixosModules.default # HM integration
         ];
