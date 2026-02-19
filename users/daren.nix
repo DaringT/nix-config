@@ -14,6 +14,7 @@
       kdePackages.okular
       kdePackages.qtsvg
       
+      youtube-music
       wineWowPackages.stable
       thunderbird
       obsidian
