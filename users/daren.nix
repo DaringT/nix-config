@@ -14,7 +14,7 @@
       kdePackages.okular
       kdePackages.qtsvg
       
-      youtube-music
+      pear-desktop
       wineWowPackages.stable
       thunderbird
       obsidian
@@ -31,12 +31,15 @@
       remmina
       brave
       spotdl
-      yt-dlp
+      # yt-dlp
       youtube-tui
       kdePackages.kcalc
       onlyoffice-desktopeditors
       ffmpeg
       eza
+  ];
+  home.packages = with pkgs-unstable; [
+    yt-dlp
   ];
 
   imports = [
