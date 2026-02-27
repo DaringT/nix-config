@@ -39,6 +39,9 @@
       ffmpeg
       eza
   ])
+
+  ++
+  
   (with pkgs-unstable; [
     yt-dlp
   ]);
