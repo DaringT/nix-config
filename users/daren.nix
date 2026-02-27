@@ -38,7 +38,7 @@
       onlyoffice-desktopeditors
       ffmpeg
       eza
-  ])
+  ];
 
   # ++
 
