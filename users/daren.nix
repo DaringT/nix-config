@@ -8,7 +8,8 @@
   # programs.bash.enable = true;
   nixpkgs.config.allowUnfree = true;
   # 2. Package Management (replacing the old users.users.daren.packages)
-  home.packages = with pkgs; [
+  home.packages = 
+    (with pkgs; [
       kdePackages.elisa
       kdePackages.kate
       kdePackages.okular
@@ -37,10 +38,10 @@
       onlyoffice-desktopeditors
       ffmpeg
       eza
-  ];
-  home.packages = with pkgs-unstable; [
+  ])
+  (with pkgs-unstable; [
     yt-dlp
-  ];
+  ]);
 
   imports = [
     ../modules/home-manager
