@@ -32,7 +32,7 @@
       remmina
       brave
       spotdl
-      # yt-dlp
+      yt-dlp
       youtube-tui
       kdePackages.kcalc
       onlyoffice-desktopeditors
@@ -40,11 +40,11 @@
       eza
   ])
 
-  ++
-  
-  (with pkgs-unstable; [
-    yt-dlp
-  ]);
+  # ++
+
+  # (with pkgs-unstable; [
+  #   yt-dlp
+  # ]);
 
   imports = [
     ../modules/home-manager
