@@ -15,7 +15,7 @@
       kdePackages.qtsvg
       
       pear-desktop
-      wineWowPackages.stable
+      wineWow64Packages.stable
       thunderbird
       obsidian
       handbrake

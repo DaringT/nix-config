@@ -127,7 +127,7 @@
     kdePackages.kcolorpicker
     bottles
     dosbox-staging
-
+    ethtool
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
