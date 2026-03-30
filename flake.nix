@@ -39,7 +39,7 @@
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-
+  in
     # Define the path to the hardware configuration file relative to this flake.
     # This is the path checked during Nix evaluation.
 
