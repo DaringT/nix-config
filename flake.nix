@@ -35,7 +35,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, kwin-effects-forceblur ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, kwin-effects-forceblur, ... }@inputs:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
