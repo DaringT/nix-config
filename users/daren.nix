@@ -37,7 +37,7 @@
       onlyoffice-desktopeditors
       ffmpeg
       eza
-      inputs.helium.packages.${system}.default
+      # inputs.helium.packages.${system}.default
   ];
 
 
