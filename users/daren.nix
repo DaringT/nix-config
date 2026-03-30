@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
-
+let
+  helium-browser = inputs.helium.packages.${pkgs.system}.default;
+in
 {
   home.username = "daren";
   home.homeDirectory = "/home/daren";
@@ -37,13 +39,10 @@
       onlyoffice-desktopeditors
       ffmpeg
       eza
+      helium-browser
+      
   ];
 
-  # ++
-
-  # (with pkgs-unstable; [
-  #   yt-dlp
-  # ]);
 
   imports = [
     ../modules/home-manager

@@ -22,13 +22,20 @@
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     }; 
+
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";
-    };     
+    };    
+
+    helium = {
+        url = "github:AlvaroParker/helium-nix";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, kwin-effects-forceblur}@inputs:
+  outputs = { self, nixpkgs, home-manager, plasma-manager, helium, kwin-effects-forceblur}@inputs:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};

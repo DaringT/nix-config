@@ -128,6 +128,9 @@
     bottles
     dosbox-staging
     ethtool
+    winbox4
+    unixtools.arp
+    
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
