@@ -65,7 +65,7 @@
             
             modules = [
               ./configuration.nix
-              ./hosts/VM/hardware-configuration.nix;
+              ./hosts/VM/hardware-configuration.nix
               home-manager.nixosModules.default # HM integration
               ];
             };
