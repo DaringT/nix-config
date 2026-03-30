@@ -1,7 +1,5 @@
 { config, pkgs, lib, ... }:
-let
-  helium-browser = inputs.helium.packages.${pkgs.system}.default;
-in
+
 {
   home.username = "daren";
   home.homeDirectory = "/home/daren";
@@ -39,16 +37,16 @@ in
       onlyoffice-desktopeditors
       ffmpeg
       eza
-      helium-browser
       
   ];
 
 
   imports = [
     ../modules/home-manager
-    ../modules/wm/kde-plasma/dolphin/dolphin.nix
-    ../modules/browsers/librewolf.nix
+    ../modules/pkgs/dolphin.nix
+    ../modules/pkgs/librewolf.nix
     ../modules/wm/kde-plasma/plasma-panel.nix
+
     # ../modules/fonts.nix
     # modules/home-manager/fonts.nix
   ];
