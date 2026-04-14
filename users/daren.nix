@@ -4,10 +4,8 @@
   home.username = "daren";
   home.homeDirectory = "/home/daren";
   
-  # 1. Shell Configuration
-  # programs.bash.enable = true;
   nixpkgs.config.allowUnfree = true;
-  # 2. Package Management (replacing the old users.users.daren.packages)
+
   home.packages = with pkgs; [
       kdePackages.elisa
       kdePackages.kate
@@ -46,10 +44,8 @@
     ../modules/pkgs/dolphin.nix
     ../modules/pkgs/librewolf.nix
     # ../modules/pkgs/helium-browser.nix
-    ../modules/wm/kde-plasma/plasma-panel.nix
-
+    # ../modules/wm/kde-plasma/plasma-panel.nix
     # ../modules/fonts.nix
-    # modules/home-manager/fonts.nix
   ];
   
 

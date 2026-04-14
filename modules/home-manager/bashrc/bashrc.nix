@@ -66,6 +66,7 @@ in
     l = lib.mkForce"lsd -CF";
     tree = lib.mkForce"lsd --tree";
     cat = "bat";
+    iso = "echo dd if=/dev/cdrom of=output.iso";
     
     # Directory/Navigation
     "cd.." = "cd ..";
@@ -91,7 +92,7 @@ in
     grep = "grep --color=auto";
     fgrep = "fgrep --color=auto";
     egrep = "egrep --color=auto";
-    
+    cb = "xclip -sel clip";
     # # Alert Alias (using multiline string)
   };
 
