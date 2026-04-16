@@ -1,5 +1,18 @@
 { config, pkgs, lib, ... }:
 
+let
+  customOverlays = self: super: {
+    # Override the bottles package to remove the warning popup
+    bottles = super.bottles.overrideAttrs (oldAttrs: {
+      meta = oldAttrs.meta // {
+        # Any extra metadata or modifications
+      };
+      removeWarningPopup = true;
+    });
+  };
+
+in
+
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -76,6 +89,10 @@
   #users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
   #virtualisation.virtualbox.host.enableExtensionPack = true;
 
+
+  nixpkgs.overlays = [ customOverlays ];
+
+
 # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -104,6 +121,7 @@
     xclip
 
   ];
+
 
   # Automatic cleanup
   nix.gc.automatic = true;
