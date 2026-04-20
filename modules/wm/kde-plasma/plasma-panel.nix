@@ -1,13 +1,13 @@
 { config, pkgs, lib, ... }:
 
-# let
-#   colorizerWidget = import ./plasma-panel-colorizer.nix { inherit pkgs; };
-# in
+let
+  # colorizerWidget = import ./plasma-panel-colorizer.nix { inherit pkgs; };
+  kde-material-you-colors = import ./kde-material-you-colors.nix { inherit pkgs; };
+in
 
 {
   home.packages = with pkgs; [
     plasma-panel-colorizer
-    # windowTitleAppletPkg
   ];
 
   programs.plasma.panels = [
@@ -42,6 +42,7 @@
               # "org.kde.plasma.battery"
               "org.kde.plasma.volume"
               "org.kde.plasma.networkmanagement"
+              # "org.kde.plasma.bluetooth"
             ];
           };
         }
@@ -51,6 +52,7 @@
             # time.showSeconds = "always";
           };
         }
+        kde-material-you-colors
         # colorizerWidget
       ];
     }
