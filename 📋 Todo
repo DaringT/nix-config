@@ -1,0 +1,9 @@
+add zsh
+add starship
+
+replace vscode with vscodium
+add add all keybinding to nix config
+
+cleanup config
+
+change to stable
