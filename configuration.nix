@@ -119,6 +119,7 @@ in
     winbox4
     unixtools.arp
     xclip
+    rustdesk
 
   ];
 
