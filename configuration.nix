@@ -114,9 +114,8 @@ in
     bat
     kdePackages.kcolorpicker
     bottles
-    dosbox-staging
     ethtool
-    winbox4
+    # winbox4 -- Micro tick switch mgnt
     unixtools.arp
     xclip
     rustdesk
