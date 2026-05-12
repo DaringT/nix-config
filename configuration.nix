@@ -106,7 +106,7 @@ in
     fastfetch
     htop
     gh
-    vscode
+    # vsco
     timeshift
     pulseaudio
     direnv
