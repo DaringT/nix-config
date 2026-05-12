@@ -5,5 +5,7 @@
     ./fonts.nix
     ./lsd.nix
     ./bashrc/bashrc.nix
+    ./vscodium.nix
+
   ];
 }
