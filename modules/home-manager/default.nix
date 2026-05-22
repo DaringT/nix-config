@@ -7,6 +7,6 @@
     ./bashrc/bashrc.nix
     ./vscodium.nix
     ./kitty.nix
-
+    ./zsh.nix
   ];
 }
