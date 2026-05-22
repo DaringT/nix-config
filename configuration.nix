@@ -118,7 +118,7 @@ in
     # winbox4 -- Micro tick switch mgnt
     unixtools.arp
     xclip
-#     rustdesk
+    rustdesk
 
   ];
 

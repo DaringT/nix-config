@@ -6,6 +6,7 @@
     ./lsd.nix
     ./bashrc/bashrc.nix
     ./vscodium.nix
+    ./kitty.nix
 
   ];
 }
