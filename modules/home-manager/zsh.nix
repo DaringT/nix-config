@@ -2,7 +2,7 @@
 
 {
 
-    programs.zsh = {
+  programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -14,7 +14,7 @@
       ignoreSpace = true;
       extended = true;
 
-      initContent = ''
+    initContent = ''
       bindkey "^[[3~" delete-char
       eval "$(starship init zsh)"
     '';
@@ -60,10 +60,10 @@
       cb = "xclip -sel clip";
       # # Alert Alias (using multiline string)
     };
+  };
 
-    programs.zsh.plugins.starship = {
+  programs.zsh.plugins.starship = {
       enable = true;
       # settings = builtins.fromTOML (builtins.readFile ./starship.toml);
-    };
   };
 }
