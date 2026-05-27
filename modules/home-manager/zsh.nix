@@ -16,6 +16,7 @@
 
       initContent = ''
       bindkey "^[[3~" delete-char
+      eval "$(starship init zsh)"
     '';
     };
 
@@ -63,6 +64,5 @@
     programs.starship = {
       enable = true;
       # settings = builtins.fromTOML (builtins.readFile ./starship.toml);
-      eval "$(starship init zsh)"
     };
 }
