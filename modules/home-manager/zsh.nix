@@ -83,7 +83,7 @@
     settings = {
       add_newline = false;
       format = ''
-          [](blue)[ ](bg:blue fg:black)$username$hostname[](bg:purple fg:blue)$directory[](purple) 
+          [](green)[ ](bg:green fg:black)$username[󱒜]$hostname[](bg:blue fg:blue)$directory[](blue) 
           $character
       '';
 
@@ -104,14 +104,15 @@
       disabled = false;
     };
       character = {
-        success_symbol = "[](bold green)";
-        error_symbol = "[](bold red)";
+        success_symbol = "[󰁔](bold green)";
+        error_symbol = "[󰁔](bold red)";
       };
       directory.substitutions = {
         "Documents" = "📄 ";
         "Downloads" = "📥 ";
         "Music" = "🎜 ";
         "Pictures" = "📷 ";
+        "nix-config" = "❄️ ";
       };
 
     };
