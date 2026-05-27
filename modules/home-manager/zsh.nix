@@ -60,8 +60,8 @@
     };
 
 
-    histSize = 10000;
-    histFile = "$HOME/.zsh_history";
+    # histSize = 10000;
+    # histFile = "$HOME/.zsh_history";
     setOptions = ["HIST_IGNORE_ALL_DUPS"];
 
     history.size = 10000;
