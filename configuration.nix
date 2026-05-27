@@ -1,17 +1,17 @@
 { config, pkgs, lib, ... }:
 
-let
-  customOverlays = self: super: {
-    # Override the bottles package to remove the warning popup
-    bottles = super.bottles.overrideAttrs (oldAttrs: {
-      meta = oldAttrs.meta // {
-        # Any extra metadata or modifications
-      };
-      removeWarningPopup = true;
-    });
-  };
+# let
+#   customOverlays = self: super: {
+#     # Override the bottles package to remove the warning popup
+#     bottles = super.bottles.overrideAttrs (oldAttrs: {
+#       meta = oldAttrs.meta // {
+#         # Any extra metadata or modifications
+#       };
+#       removeWarningPopup = true;
+#     });
+#   };
 
-in
+# in
 
 {
   # Bootloader.
@@ -136,6 +136,6 @@ in
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 
 }
