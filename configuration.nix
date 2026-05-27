@@ -113,7 +113,7 @@ in
     home-manager
     bat
     kdePackages.kcolorpicker
-    bottles
+    # bottles
     ethtool
     # winbox4 -- Micro tick switch mgnt
     unixtools.arp
