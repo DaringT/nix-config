@@ -3,6 +3,17 @@
 {
   programs.zsh = {
     enable = true;
+    
+    # With Oh-My-Zsh:
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"         # also requires `programs.git.enable = true;`
+      ];
+      theme = "robbyrussell";
+    };
+
+    
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -47,6 +58,11 @@
       cb = "xclip -sel clip";
       # # Alert Alias (using multiline string)
     };
+
+
+    histSize = 10000;
+    histFile = "$HOME/.zsh_history";
+    setOptions = ["HIST_IGNORE_ALL_DUPS"]
 
     history.size = 10000;
     initContent = ''
