@@ -90,7 +90,7 @@
   #virtualisation.virtualbox.host.enableExtensionPack = true;
 
 
-  nixpkgs.overlays = [ customOverlays ];
+  # nixpkgs.overlays = [ customOverlays ];
 
 
 # Allow unfree packages
