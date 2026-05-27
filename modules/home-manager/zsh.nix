@@ -13,12 +13,12 @@
       ignoreDups = true;
       ignoreSpace = true;
       extended = true;
+    };
 
     initContent = ''
       bindkey "^[[3~" delete-char
       eval "$(starship init zsh)"
     '';
-    };
 
     shellAliases = {
       # ls/cat replacements
