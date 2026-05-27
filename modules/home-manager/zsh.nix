@@ -61,7 +61,7 @@
       # # Alert Alias (using multiline string)
     };
 
-    programs.starship = {
+    programs.zsh.plugins.starship = {
       enable = true;
       # settings = builtins.fromTOML (builtins.readFile ./starship.toml);
     };
