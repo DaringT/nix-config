@@ -8,13 +8,12 @@
   
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    # nixpkgs.url = "nixpkgs/nixos-26.05";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.home-manager.follows = "home-manager";
     };
 
     plasma-manager = {
