@@ -1,18 +1,18 @@
 { config, pkgs, lib, ... }:
 
-let
-  customOverlays = self: super: {
-    # Override the bottles package to remove the warning popup
-    {
-     bottles = super.bottles.overrideAttrs (oldAttrs: {
-      meta = oldAttrs.meta // {
-        # Any extra metadata or modifications
-      };
-      removeWarningPopup = true;
-    });
-  };
+# let
+#   customOverlays = self: super: {
+#     # Override the bottles package to remove the warning popup
+#     {
+#      bottles = super.bottles.overrideAttrs (oldAttrs: {
+#       meta = oldAttrs.meta // {
+#         # Any extra metadata or modifications
+#       };
+#       removeWarningPopup = true;
+#     });
+#   };
 
-in
+# in
 
 {
   # Bootloader.
