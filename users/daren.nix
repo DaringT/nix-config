@@ -43,7 +43,9 @@
       onlyoffice-desktopeditors
       ffmpeg
       eza
+      lf # filemanager
       bottles
+      tldr  # short  man /help
       # inputs.helium.packages.${system}.default
   ];
 
