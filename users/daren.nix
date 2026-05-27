@@ -8,9 +8,7 @@
       };
     })
   ];
-}
 
-{
   home.username = "daren";
   home.homeDirectory = "/home/daren";
   
