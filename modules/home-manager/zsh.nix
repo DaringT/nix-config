@@ -18,7 +18,7 @@ with pkgs.lib; {
         lsd # ls deluxe
         tldr  # short  man /help
         helix # Modern vim / neovim, hx command
-        du-dust # Disk usage tool, dust command
+        dust # Disk usage tool, dust command
         fd # Find tool
         ripgrep # grep tool, rg command
         walk # ls/cd navigation tool
