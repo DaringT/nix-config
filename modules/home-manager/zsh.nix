@@ -1,7 +1,3 @@
-{ config, pkgs, lib, ... }:
-
-{
-
 { config, pkgs, ... }:
 # https://rycee.gitlab.io/home-manager/options.html
 
@@ -414,7 +410,10 @@ programs.starship = {
     };
 
     # This is a workaround. By default most systems launch bash. This will make zsh start when bash is launched. Usefull if you dont want to mess with global settings.
-
+    programs.bash.enable = true;
+    programs.bash.initExtra = ''
+         $HOME/.nix-profile/bin/zsh
+    '';
 
 ###
 # SKIM
@@ -455,5 +454,4 @@ programs.starship = {
 };
 
 
-}
 }
