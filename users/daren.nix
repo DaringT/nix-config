@@ -59,8 +59,6 @@
     # ../modules/fonts.nix
   ];
   
-
-
   home.sessionVariables = {
   
   };

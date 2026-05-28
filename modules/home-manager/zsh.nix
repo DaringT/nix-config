@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -22,14 +21,12 @@
       # { name = "b4b4r07/enhancd"; } # got some buggy behavior on some servers.
       { name = "chisui/zsh-nix-shell"; } # Makes the nix-shell command be zsh instead of bash.
       { name = "zsh-users/zsh-syntax-highlighting"; }
-      # { name = "dracula/zsh"; tags = [ as:theme depth:1 ]; } 
       ];
     };
 
 
     initContent = ''
       bindkey "^[[3~" delete-char
-      bindkey "^[[2~"  
       eval "$(starship init zsh)"
     '';
 
@@ -84,7 +81,7 @@
     enableIonIntegration = false;
     enableZshIntegration = false;
     settings = {
-      add_newline = false;
+      add_newline = true;
       # format = ''
       #     [](green)[ ](bg:green fg:black)$username$hostname[](bg:blue fg:blue)$directory[](blue) 
       #     $character
@@ -93,17 +90,22 @@
       # zstyle ':compleation:*' matcher-list 'm:{a-z}={A-Za-z}'
 
       format = ''
-          [󱄅 ](bold fg:green)$username$hostname[: ](bold fg:white)$directory(bold fg:blue) 
-          $character
+          $character(bold fg:green)$username$hostname[: ](bold fg:white)$directory(bold fg:blue) 
+          [─❯ ](bold fg:red)
       '';
             # $username[󱒜](bold fg:#FFFFFF)$hostname[:](fg:#FFFFFF)$directory[ 󰁔](fg:#FF0000)
       
       # 󱄅 root: /etc
       # ╰─➤
 
+      character = {
+        success_symbol = "[󱄅](bold green)";
+        error_symbol = "[󱄅](bold red)";
+      };
+
       username = {
         show_always = true;
-        style_user = "bold fg:orange";
+        style_user = "bold fg:#ff9000";
         style_root = "bg:white fg:red";
         format = "[$user]($style)";
       };
@@ -116,10 +118,10 @@
         ssh_only = true;
         format = "[󱒜](fg:white)[ 🌏 ](bg:black)[$hostname](fg:#FFFFFF)";
         disabled = false;
-      };
-      character = {
-        success_symbol = "[❯](bold green)";
-        error_symbol = "[❯](bold red)";
+      # };
+      # character = {
+      #   success_symbol = "[  ❯](bold green)";
+      #   error_symbol = "[  ❯](bold red)";
       };
       #  ⮕
 
