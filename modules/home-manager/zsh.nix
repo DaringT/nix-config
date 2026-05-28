@@ -22,13 +22,14 @@
       # { name = "b4b4r07/enhancd"; } # got some buggy behavior on some servers.
       { name = "chisui/zsh-nix-shell"; } # Makes the nix-shell command be zsh instead of bash.
       { name = "zsh-users/zsh-syntax-highlighting"; }
-      { name = "dracula/zsh"; tags = [ as:theme depth:1 ]; } 
+      # { name = "dracula/zsh"; tags = [ as:theme depth:1 ]; } 
       ];
     };
 
 
     initContent = ''
       bindkey "^[[3~" delete-char
+      bindkey "^[[2~"  
       eval "$(starship init zsh)"
     '';
 
@@ -46,6 +47,8 @@
       iso = "echo dd if=/dev/cdrom of=output.iso";
       
       # Directory/Navigation
+      cd = "z";
+      cdi = "zi";
       "cd.." = "cd ..";
       nixos = "cd ~/nix-config";
       rn = "mv";
@@ -79,46 +82,57 @@
     enableBashIntegration = false;
     enableFishIntegration = false;
     enableIonIntegration = false;
-    enableZshIntegration = true;
+    enableZshIntegration = false;
     settings = {
       add_newline = false;
+      # format = ''
+      #     [](green)[ ](bg:green fg:black)$username$hostname[](bg:blue fg:blue)$directory[](blue) 
+      #     $character
+      # '';
+
+      # zstyle ':compleation:*' matcher-list 'm:{a-z}={A-Za-z}'
+
       format = ''
-          [](green)[ ](bg:green fg:black)$username[󱒜]$hostname[](bg:blue fg:blue)$directory[](blue) 
+          [󱄅 ](bold fg:green)$username$hostname[: ](bold fg:white)$directory(bold fg:blue) 
           $character
       '';
+            # $username[󱒜](bold fg:#FFFFFF)$hostname[:](fg:#FFFFFF)$directory[ 󰁔](fg:#FF0000)
+      
+      # 󱄅 root: /etc
+      # ╰─➤
 
       username = {
         show_always = true;
-        style_user = "bg:blue fg:black";
-        style_root = "bg:blue fg:red";
+        style_user = "bold fg:orange";
+        style_root = "bg:white fg:red";
         format = "[$user]($style)";
       };
       directory = {
         format = "[$path]($style)";
-        style = "bg:purple fg:black";
+        style = "fg:blue";
         truncate_to_repo = false;
       };
-    hostname = {      
-      ssh_only = true;
-      format = "[ 🌏 ](bg:blue fg:black)[$hostname](bg:blue fg:black)";
-      disabled = false;
-    };
+      hostname = {  
+        ssh_only = true;
+        format = "[󱒜](fg:white)[ 🌏 ](bg:black)[$hostname](fg:#FFFFFF)";
+        disabled = false;
+      };
       character = {
-        success_symbol = "[󰁔](bold green)";
-        error_symbol = "[󰁔](bold red)";
+        success_symbol = "[❯](bold green)";
+        error_symbol = "[❯](bold red)";
       };
+      #  ⮕
+
       directory.substitutions = {
-        "Documents" = "📄 ";
-        "Downloads" = "📥 ";
-        "Music" = "🎜 ";
-        "Pictures" = "📷 ";
-        "nix-config" = "❄️ ";
+        "Documents" = "󰈙";
+        "Downloads" = "󰉍"; #󰇚
+        "Music" = "🎜";
+        "Pictures" = "󰄀";
+        "nix-config" = "󰜗";
       };
 
     };
-
   };
-
   ###
 # Zoxide
 ###
