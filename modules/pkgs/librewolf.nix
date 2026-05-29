@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   programs.librewolf = {
     enable = true;
     settings = {
@@ -60,7 +59,7 @@
   }; # The 'extensions' attribute handles declarative extension installation
 
       };
-
+  home.file.".local/share/applications/librewolf.desktop".source = "${pkgs.librewolf}/share/applications/librewolf.desktop";
 }
   #  package = pkgs.librewolf;
   #  policies = {
