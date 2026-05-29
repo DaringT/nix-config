@@ -1,14 +1,13 @@
-{ lib }:
-
+# aliasis.nix
 {
   # ls/cat replacements
-  lss = lib.mkForce "ls";
-  ls = lib.mkForce "lsd";
-  ll = lib.mkForce "lsd -alF";
-  lll = lib.mkForce "lsd -1";
-  la = lib.mkForce "lsd -A";
-  l = lib.mkForce "lsd -CF";
-  tree = lib.mkForce "lsd --tree";
+  lss = "ls";
+  ls = "lsd";
+  ll = "lsd -alF";
+  lll = "lsd -1";
+  la = "lsd -A";
+  l = "lsd -CF";
+  tree = "lsd --tree";
   cat = "bat";
   iso = "echo dd if=/dev/cdrom of=output.iso";
   flash = "echo dd of=/dev/sdc if=output.iso";

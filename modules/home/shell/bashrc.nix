@@ -13,6 +13,7 @@ let
     # coreutils           # provides dircolors
   ];
 
+  sharedAliases = import ./aliasis.nix;
 in
 
 
@@ -20,7 +21,7 @@ in
 {
   # 1. Shell Program Setup and Options
   programs.bash = {
-    enable = true;
+    enable = false;
     
     # initExtra = builtins.readFile './ls_colors.sh';
   
@@ -47,8 +48,6 @@ in
     
     # colored GCC warnings and errors
     GCC_COLORS = "error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01";
-    # PS1 = '\[\e[1;38;2;55;209;2m\]\u\[\e[38;2;169;169;169m\]\e[1;38;2;255;255;255m󱒜\[\e[1;38;2;55;209;2m\]\h\[\e[38;2;255;255;255m\]:\[\e[1;38;2;0;153;255m\]\w\[\e[38;2;255;0;0m\] 󰁔\[\e[0m\]'
-    # PS1 = "\\[\\e[1;38;2;55;209;2m\\]\\u\\[\\e[38;2;169;169;169m\\]\\e[1;38;2;255;255;255m󱒜\\[\\e[1;38;2;55;209;2m\\]\\h\\[\\e[38;2;255;255;255m\\]:\\[\\e[1;38;2;0;153;255m\\]\\w\\[\\e[38;2;255;0;0m\\] 󰁔\\[\\e[0m\\]";
   };
   
   # 3. Path Management

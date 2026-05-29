@@ -51,7 +51,7 @@
 
 
   imports = [
-    ../modules/home-manager
+    ../modules/home
     ../modules/pkgs/dolphin.nix
     ../modules/pkgs/librewolf.nix
     # ../modules/pkgs/helium-browser.nix
