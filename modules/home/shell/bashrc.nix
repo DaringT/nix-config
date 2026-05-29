@@ -21,7 +21,7 @@ in
 {
   # 1. Shell Program Setup and Options
   programs.bash = {
-    enable = false;
+    enable = true;
     
     # initExtra = builtins.readFile './ls_colors.sh';
   
