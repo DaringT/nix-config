@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -14,23 +13,24 @@
       ignoreSpace = true;
       extended = true;
     };
+    
 
-    zplug = {
-      enable = true;
-      plugins = [
-          # List fo plugins: https://github.com/unixorn/awesome-zsh-plugins
-      # { name = "b4b4r07/enhancd"; } # got some buggy behavior on some servers.
-      { name = "chisui/zsh-nix-shell"; } # Makes the nix-shell command be zsh instead of bash.
-      { name = "zsh-users/zsh-syntax-highlighting"; }
-      # { name = "dracula/zsh"; tags = [ as:theme depth:1 ]; } 
-      ];
-    };
+    plugins = [
+      {
+        name = "zsh-nix-shell";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.8.0";
+          sha256 = "sha256-Z6EYQdasvpl1P78poj9efnnLj7QQg13Me8x1Ryyw+dM=";
+        };
+      }
 
+    ];
+      # eval "$(starship init zsh)"
 
     initContent = ''
       bindkey "^[[3~" delete-char
-      bindkey "^[[2~"  
-      eval "$(starship init zsh)"
     '';
 
     shellAliases = {
@@ -45,6 +45,7 @@
       tree = lib.mkForce"lsd --tree";
       cat = "bat";
       iso = "echo dd if=/dev/cdrom of=output.iso";
+      flash = "echo dd of=/dev/sdc if=output.iso";
       
       # Directory/Navigation
       cd = "z";
@@ -73,37 +74,35 @@
       fgrep = "fgrep --color=auto";
       egrep = "egrep --color=auto";
       cb = "xclip -sel clip";
-      # # Alert Alias (using multiline string)
     };
   };
 
   programs.starship = {
+    enableZshIntegration = true;
     enable = true;
     enableBashIntegration = false;
     enableFishIntegration = false;
     enableIonIntegration = false;
-    enableZshIntegration = false;
     settings = {
-      add_newline = false;
-      # format = ''
-      #     [](green)[ ](bg:green fg:black)$username$hostname[](bg:blue fg:blue)$directory[](blue) 
-      #     $character
-      # '';
-
+      add_newline = true;
       # zstyle ':compleation:*' matcher-list 'm:{a-z}={A-Za-z}'
 
       format = ''
-          [󱄅 ](bold fg:green)$username$hostname[: ](bold fg:white)$directory(bold fg:blue) 
-          $character
+          $character(bold fg:green)$username$hostname[: ](bold fg:white)$directory(bold fg:blue) 
+          [─❯ ](bold fg:red)
       '';
-            # $username[󱒜](bold fg:#FFFFFF)$hostname[:](fg:#FFFFFF)$directory[ 󰁔](fg:#FF0000)
       
       # 󱄅 root: /etc
       # ╰─➤
 
+      character = {
+        success_symbol = "[󱄅](bold green)";
+        error_symbol = "[󱄅](bold red)";
+      };
+
       username = {
         show_always = true;
-        style_user = "bold fg:orange";
+        style_user = "bold fg:#ff9000";
         style_root = "bg:white fg:red";
         format = "[$user]($style)";
       };
@@ -117,11 +116,6 @@
         format = "[󱒜](fg:white)[ 🌏 ](bg:black)[$hostname](fg:#FFFFFF)";
         disabled = false;
       };
-      character = {
-        success_symbol = "[❯](bold green)";
-        error_symbol = "[❯](bold red)";
-      };
-      #  ⮕
 
       directory.substitutions = {
         "Documents" = "󰈙";
@@ -133,9 +127,7 @@
 
     };
   };
-  ###
-# Zoxide
-###
+   
     programs.zoxide = {
       enable = true;
       enableZshIntegration = true;

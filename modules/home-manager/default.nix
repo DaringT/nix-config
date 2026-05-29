@@ -1,12 +1,15 @@
 { ... }:
 {
   imports = [
-    ./git.nix
+    ./shell
+    
     ./fonts.nix
-    ./lsd.nix
-    ./bashrc/bashrc.nix
-    ./vscodium.nix
+    ./git.nix
     ./kitty.nix
-    ./zsh.nix
+    ./lsd.nix
+    ./shell
+    ./vscodium.nix
+    ./zoxide.nix
+    
   ];
 }
