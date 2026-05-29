@@ -62,13 +62,14 @@ nix-shell -p git --run "
 - [ ] 🛠️ Add *vscodium* to home-manager
 - [ ] 🛠️ Add *Panel Colorixer* to home-manager
 - [ ] 🛠️ Add *PlasMusic Toolbar* to home-manager
-- [X] 🛠️ Add *.bashrc* to home-manager
+- [x] 🛠️ Add *.bashrc* to home-manager
 - [x] 🛠️ Add *.zsh* to home-manager
 - [x] 🛠️ Add *.gitconfig* to home-manager
+- [ ] 📀 Add a backup systyem to NAS server
 - [ ] 🎵 Setting up Mp3Tags with wine in a flake. **With Mp3Tags Config's**
 - [x] 💬 Setting up nerd fonts
 - [x] 🗃️ - 🎵Dolphin config with converting to "Convert to MP3"
 - [ ] 🖥️ - 🖥️ Lock 2 monitors wallpapers to be the same thing
 - [x] ⚠️ 🐺 Warning: LibreWolf addon's don't add in NixOS config.
-- [ ]  🏞️ - 📦 (Optional) Pulling Wallpapers from Reddit: RedPapper NEEDS KDE SUPPORT
+- [ ] 🏞️ - 📦 (Optional) Pulling Wallpapers from Reddit: RedPapper NEEDS KDE SUPPORT
 - [x] bat instead of cat
